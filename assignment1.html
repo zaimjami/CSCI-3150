@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Gehraiyaan (2022 film)</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gehraiyaan (2022 film) — Semantic HTML5 Recode</title>
 
-  <!-- Google Fonts (same as Assignment 2) -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-  <h1 class="site-title">Gehraiyaan</h1>
-  <p class="site-subtitle">2022 Indian Hindi-language romantic drama film</p>
-</header>
+  <a class="skip-link sr-only" href="#main">Skip to content</a>
 
-<nav class="main-nav">
-  <a href="#overview">Overview</a>
-  <a href="#plot">Plot</a>
-  <a href="#cast">Cast</a>
-  <a href="#production">Production</a>
-  <a href="#soundtrack">Soundtrack</a>
-  <a href="#reception">Reception</a>
-  <a href="#awards">Awards</a>
-</nav>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <h1 class="site-title">Gehraiyaan</h1>
+      <p class="site-subtitle">2022 Indian Hindi-language romantic drama film</p>
+    </div>
+  </header>
 
-  <main>
+  <!-- Navigation -->
+  <nav class="site-nav" aria-label="Article sections" role="navigation">
+    <div class="container">
+      <ul class="menu">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#plot">Plot</a></li>
+        <li><a href="#cast">Cast</a></li>
+        <li><a href="#production">Production</a></li>
+        <li><a href="#soundtrack">Soundtrack</a></li>
+        <li><a href="#reception">Reception</a></li>
+        <li><a href="#awards">Awards</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main id="main" class="container flow" role="main">
+    <!-- Overview -->
     <section id="overview">
       <h2>Overview</h2>
-      <figure>
-        <img src="gehraiyaan-poster.jpg" alt="Official poster of Gehraiyaan">
+      <figure class="media">
+        <img src="gehraiyaan-poster.jpg" alt="Official poster of Gehraiyaan" />
         <figcaption>Official release poster</figcaption>
       </figure>
       <p><em>Gehraiyaan</em> (transl. Depths) is a 2022 Indian Hindi-language romantic drama film directed by Shakun Batra 
@@ -44,6 +60,7 @@
          while the screenplay and third act drew criticism.</p>
     </section>
 
+    <!-- Plot -->
     <section id="plot">
       <h2>Plot</h2>
       <p>Alisha “Al” Khanna, a 30-year-old yoga instructor in Mumbai, supports her unmotivated boyfriend Karan while struggling with anxiety and trauma from her mother’s suicide. Estranged from her father Vinod, she reconnects with her cousin Tia and Tia’s fiancé Zain Oberoi, a real-estate developer. Alisha and Zain begin a secret affair, intensifying as Alisha’s frustrations with Karan grow.</p>
@@ -51,21 +68,23 @@
       <p>Tia later reveals Alisha’s true parentage: she is the daughter of Tia’s father Kumud and Sonali. This revelation reshapes Alisha’s estrangement from Vinod. Two years later, she attends Karan’s engagement, reconnects with Tia, and looks toward a more peaceful life. The film ends on a cliffhanger with a mysterious reunion.</p>
     </section>
 
+    <!-- Cast -->
     <section id="cast">
       <h2>Cast</h2>
-      <ul>
-        <li>Deepika Padukone as Alisha “Al” Khanna</li>
-        <li>Ananya Panday as Tia “Ti” Khanna</li>
-        <li>Siddhant Chaturvedi as Zain Oberoi</li>
-        <li>Dhairya Karwa as Karan Arora</li>
-        <li>Rajat Kapoor as Jitesh</li>
-        <li>Naseeruddin Shah as Vinod Khanna</li>
-        <li>Pavleen Gujral as Sonali Khanna</li>
-        <li>Natasha Rastogi as Vaani Khanna</li>
-        <li>Anup Sharma as Kumud Khanna</li>
+      <ul class="columns">
+        <li>Deepika Padukone — Alisha “Al” Khanna</li>
+        <li>Ananya Panday — Tia “Ti” Khanna</li>
+        <li>Siddhant Chaturvedi — Zain Oberoi</li>
+        <li>Dhairya Karwa — Karan Arora</li>
+        <li>Rajat Kapoor — Jitesh</li>
+        <li>Naseeruddin Shah — Vinod Khanna</li>
+        <li>Pavleen Gujral — Sonali Khanna</li>
+        <li>Natasha Rastogi — Vaani Khanna</li>
+        <li>Anup Sharma — Kumud Khanna</li>
       </ul>
     </section>
 
+    <!-- Production -->
     <section id="production">
       <h2>Production</h2>
       <h3>Development and Casting</h3>
@@ -76,12 +95,14 @@
          resumed in Mumbai later that year, and concluded in August 2021. The film was notable for employing an intimacy department for choreographing sensitive scenes.</p>
     </section>
 
+    <!-- Soundtrack -->
     <section id="soundtrack">
       <h2>Soundtrack</h2>
       <p>The music was composed by OAFF and Savera, marking their mainstream debut. Lyrics were written by Kausar Munir and Ankur Tewari. 
          The Hindi version of “Frontline,” performed by Lothika Jha, was adapted as part of the soundtrack.</p>
     </section>
 
+    <!-- Reception -->
     <section id="reception">
       <h2>Reception</h2>
       <p><em>Gehraiyaan</em> received mixed reviews. Performances, cinematography, and soundtrack were praised, while the screenplay and climax were criticized. 
@@ -89,16 +110,17 @@
       <p>Positive reviews highlighted Padukone’s performance and the film’s technical strengths. Critics such as Anna M. M. Vetticad of Firstpost rated it highly, while others like Shubhra Gupta of The Indian Express found it lacking in depth.</p>
     </section>
 
+    <!-- Awards -->
     <section id="awards">
       <h2>Awards and Nominations</h2>
-      <table>
+      <table class="table" role="table">
         <thead>
           <tr>
-            <th>Award</th>
-            <th>Date</th>
-            <th>Category</th>
-            <th>Recipient(s)</th>
-            <th>Result</th>
+            <th scope="col">Award</th>
+            <th scope="col">Date</th>
+            <th scope="col">Category</th>
+            <th scope="col">Recipient(s)</th>
+            <th scope="col">Result</th>
           </tr>
         </thead>
         <tbody>
@@ -135,8 +157,12 @@
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Zaim Jami – CSCI 3150 Assignment 1</p>
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2025 Zaim Jami — CSCI 3150 Assignment 1</p>
+      <p><a href="index.html">Back to class portal</a></p>
+    </div>
   </footer>
 </body>
 </html>
