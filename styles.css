@@ -86,10 +86,12 @@ a:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* Media / figure */
 .media{ margin: 1rem 0; }
-.media img{
+.media img {
+  display: block;
   width: 100%;
+  max-width: 400px;
   height: auto;
-  display:block;
+  margin-inline: auto;
   border-radius: .5rem;
   box-shadow: 0 6px 18px rgba(0,0,0,.12);
 }
