@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lab 3 — Semantic & Accessible HTML Demo</title>
+
+  <!-- Google Fonts (legibility: Inter for body, Playfair for headings) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Material Icons (decorative; hidden from screen readers) -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Your shared stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip navigation (hidden until focus) -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container">
+      <h1 class="site-title">Lab 3 — Semantic HTML & Accessibility</h1>
+      <p class="site-subtitle">CSCI 3150 • Proper landmarks, accessible form & table, skip nav, icons, and validation</p>
+    </div>
+  </header>
+
+  <!-- Primary nav with a CSS-only “Jump to section” dropdown -->
+  <nav class="site-nav" aria-label="Primary" role="navigation">
+    <div class="container">
+      <ul class="menu">
+        <li><a href="#about">About this Lab</a></li>
+        <li><a href="#form">Accessible Form</a></li>
+        <li><a href="#table">Accessible Data Table</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+
+      <!-- CSS dropdown: keyboard and SR-friendly summary/details -->
+      <details class="jump-dropdown">
+        <summary aria-label="Jump to section">
+          <span class="material-icons" aria-hidden="true">arrow_drop_down_circle</span>
+          Jump to…
+        </summary>
+        <ul>
+          <li><a href="#about">About this Lab</a></li>
+          <li><a href="#form">Accessible Form</a></li>
+          <li><a href="#table">Accessible Data Table</a></li>
+          <li><a href="#resources">Resources</a></li>
+        </ul>
+      </details>
+    </div>
+  </nav>
+
+  <main id="main" class="container flow" role="main">
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-h">
+      <h2 id="about-h">About this Lab</h2>
+      <article>
+        <p>This page demonstrates a properly structured, semantic HTML5 layout with an accessible form and data table. It includes a keyboard-accessible skip link, a CSS-only dropdown to jump between sections, legible typography via Google Fonts, and Google Material Icons that are hidden from screen readers when decorative.</p>
+        <aside class="note" aria-label="Note on validation">
+          <span class="material-icons" aria-hidden="true">info</span>
+          <p>Before submitting, validate with the HTML Validator, WAVE, Silktide, HTML5 Outliner, and Lighthouse. Use VoiceOver (macOS) or NVDA (Windows), turn off/dim your screen, and navigate this page by keyboard to experience it like a screen-reader user.</p>
+        </aside>
+      </article>
+    </section>
+
+    <!-- ACCESSIBLE FORM -->
+    <section id="form" aria-labelledby="form-h">
+      <h2 id="form-h">Accessible Form</h2>
+
+      <!-- Live region for simple demo feedback -->
+      <p id="form-status" class="sr-only" aria-live="polite"></p>
+
+      <form class="form" aria-describedby="form-help" onsubmit="document.getElementById('form-status').textContent='Form submitted.'">
+        <p id="form-help" class="help">All fields marked with <span aria-hidden="true">*</span> are required.</p>
+
+        <fieldset>
+          <legend>Contact information</legend>
+
+          <div class="field">
+            <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" required autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" required autocomplete="email" inputmode="email">
+          </div>
+
+          <div class="field">
+            <label for="role">Role</label>
+            <select id="role" name="role">
+              <option value="student">Student</option>
+              <option value="instructor">Instructor</option>
+              <option value="guest">Guest</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Session preferences</legend>
+
+          <div class="field">
+            <span id="format-label">Preferred format</span>
+            <div class="choices" role="radiogroup" aria-labelledby="format-label">
+              <div>
+                <input type="radio" id="format-virtual" name="format" value="virtual" checked>
+                <label for="format-virtual">Virtual</label>
+              </div>
+              <div>
+                <input type="radio" id="format-inperson" name="format" value="in-person">
+                <label for="format-inperson">In-person</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <input type="checkbox" id="a11y" name="a11y">
+            <label for="a11y">Request accessibility accommodation info</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your message</legend>
+          <div class="field">
+            <label for="message">Questions or notes</label>
+            <textarea id="message" name="message" rows="4" aria-describedby="msg-help"></textarea>
+            <small id="msg-help" class="help">Do not include sensitive information.</small>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit">
+            <span class="material-icons" aria-hidden="true">send</span>
+            Submit
+          </button>
+          <button type="reset" class="secondary">
+            <span class="material-icons" aria-hidden="true">restart_alt</span>
+            Reset
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ACCESSIBLE DATA TABLE -->
+    <section id="table" aria-labelledby="table-h">
+      <h2 id="table-h">Accessible Data Table</h2>
+      <div class="table-wrap" role="region" aria-labelledby="enroll-cap" tabindex="0">
+        <table class="table">
+          <caption id="enroll-cap">Enrollment & Outcomes — Sample Programs (2025)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Program</th>
+              <th scope="col">Students</th>
+              <th scope="col">Graduates</th>
+              <th scope="col">Grad Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Computer Science</th>
+              <td>120</td>
+              <td>95</td>
+              <td>79.2%</td>
+            </tr>
+            <tr>
+              <th scope="row">Data Science</th>
+              <td>80</td>
+              <td>66</td>
+              <td>82.5%</td>
+            </tr>
+            <tr>
+              <th scope="row">Electrical Engineering</th>
+              <td>90</td>
+              <td>70</td>
+              <td>77.8%</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Total / Avg</th>
+              <td>290</td>
+              <td>231</td>
+              <td>79.7%</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <p class="help">Table includes a <strong>caption</strong>, <strong>thead/tbody/tfoot</strong>, and correct <strong>scope</strong> attributes for headers.</p>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources" aria-labelledby="res-h">
+      <h2 id="res-h">Validation & Accessibility Resources</h2>
+      <ul>
+        <li><a href="https://validator.w3.org/nu/" target="_blank" rel="noopener">W3C HTML Validator</a></li>
+        <li><a href="https://wave.webaim.org/" target="_blank" rel="noopener">WAVE Evaluation Tool</a></li>
+        <li><a href="https://silktide.com" target="_blank" rel="noopener">Silktide</a></li>
+        <li><a href="https://gsnedders.html5.org/outliner/" target="_blank" rel="noopener">HTML5 Outliner</a></li>
+        <li><a href="https://developer.chrome.com/docs/lighthouse/overview/" target="_blank" rel="noopener">Lighthouse (Chrome DevTools)</a></li>
+        <li><a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener">NVDA Screen Reader (Windows)</a></li>
+        <li><a href="https://support.apple.com/guide/voiceover/welcome/mac" target="_blank" rel="noopener">VoiceOver (macOS)</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2025 Zaim Jami — CSCI 3150 Lab 3</p>
+      <p><a href="index.html">Back to class portal</a></p>
+    </div>
+  </footer>
+
+  <!-- No external JS required; tiny inline line above updates live region text -->
+</body>
+</html>
