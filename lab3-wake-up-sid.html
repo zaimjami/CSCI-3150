@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wake Up Sid (2009) — Semantic & Accessible Recode</title>
+
+  <!-- Google Fonts (legibility) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Material Icons (decorative; hidden from screen readers in HTML) -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Your shared stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip Nav (visible on focus) -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <h1 class="site-title">Wake Up Sid (2009)</h1>
+      <p class="site-subtitle">Semantic HTML5 • Accessible Form & Table • Skip Navigation • Google Fonts & Icons</p>
+    </div>
+  </header>
+
+  <!-- Primary navigation + CSS-only dropdown “Jump to” -->
+  <nav class="site-nav" aria-label="Primary" role="navigation">
+    <div class="container">
+      <ul class="menu">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#infobox">Key Credits</a></li>
+        <li><a href="#plot">Plot</a></li>
+        <li><a href="#cast">Cast</a></li>
+        <li><a href="#production">Production</a></li>
+        <li><a href="#release">Release</a></li>
+        <li><a href="#reception">Critical Reception</a></li>
+        <li><a href="#boxoffice">Box Office</a></li>
+        <li><a href="#accolades">Accolades</a></li>
+        <li><a href="#soundtrack">Soundtrack</a></li>
+        <li><a href="#feedback">Feedback Form</a></li>
+        <li><a href="#datatable">Accessible Data Table</a></li>
+        <li><a href="#sources">References Note</a></li>
+      </ul>
+
+      <!-- CSS dropdown; keyboard & SR-friendly -->
+      <details class="jump-dropdown">
+        <summary aria-label="Jump to section">
+          <span class="material-icons" aria-hidden="true">arrow_drop_down_circle</span>
+          Jump to…
+        </summary>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#plot">Plot</a></li>
+          <li><a href="#feedback">Feedback Form</a></li>
+          <li><a href="#datatable">Accessible Data Table</a></li>
+        </ul>
+      </details>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main id="main" class="container flow" role="main">
+    <!-- Overview -->
+    <section id="overview" aria-labelledby="h-overview">
+      <h2 id="h-overview">Overview</h2>
+
+      <figure class="media">
+        <!-- Use your optimized local poster if you have it (e.g., images/wus-poster.jpg) -->
+        <img src="images/wake-up-sid-poster.jpg" alt="Theatrical poster for Wake Up Sid (2009)" />
+        <figcaption>Theatrical release poster</figcaption>
+      </figure>
+
+      <article>
+        <p><em>Wake Up Sid</em> is a 2009 Indian Hindi-language coming-of-age comedy-drama written and directed by Ayan Mukerji in his directorial debut and produced by Karan Johar under Dharma Productions. The film stars Ranbir Kapoor and Konkona Sen Sharma, with supporting performances by Anupam Kher, Supriya Pathak, Namit Das, and Rahul Khanna. Set in contemporary Mumbai, it follows Siddharth “Sid” Mehra, a carefree college student who matures through friendship with Aisha Banerjee, an aspiring writer from Kolkata.</p>
+        <p>Released theatrically on 2 October 2009, the film received widespread acclaim for its direction, contemporary themes, performances, and music, becoming a commercial success. Over time, it has been regarded as a defining youth-focused film of its decade for its relatable urban characters and gentle, believable transformation arc.</p>
+      </article>
+
+      <aside class="note" aria-label="Validation note">
+        <span class="material-icons" aria-hidden="true">info</span>
+        <p>This page demonstrates semantic structure, a skip link, an accessible form, an accessible data table, Google Fonts, and Material Icons (decorative, hidden from screen readers). It is built to pass HTML Validator, WAVE, Silktide, HTML5 Outliner, and Lighthouse accessibility checks.</p>
+      </aside>
+    </section>
+
+    <!-- Infobox-style key credits -->
+    <section id="infobox" aria-labelledby="h-infobox">
+      <h2 id="h-infobox">Key Credits & Data</h2>
+
+      <aside class="infobox" aria-label="Film key credits">
+        <dl class="kv">
+          <div><dt>Directed by</dt><dd>Ayan Mukerji</dd></div>
+          <div><dt>Screenplay</dt><dd>Ayan Mukerji</dd></div>
+          <div><dt>Dialogues</dt><dd>Niranjan Iyengar</dd></div>
+          <div><dt>Produced by</dt><dd>Hiroo Yash Johar; Karan Johar</dd></div>
+          <div><dt>Cinematography</dt><dd>Anil Mehta</dd></div>
+          <div><dt>Edited by</dt><dd>Shan Mohammed</dd></div>
+          <div><dt>Music</dt><dd>Shankar–Ehsaan–Loy (songs); Amit Trivedi (score)</dd></div>
+          <div><dt>Studio</dt><dd>Dharma Productions</dd></div>
+          <div><dt>Distributed by</dt><dd>UTV Motion Pictures</dd></div>
+          <div><dt>Release date</dt><dd>2 October 2009</dd></div>
+          <div><dt>Running time</dt><dd>138 minutes</dd></div>
+          <div><dt>Country</dt><dd>India</dd></div>
+          <div><dt>Language</dt><dd>Hindi</dd></div>
+          <div><dt>Budget</dt><dd>₹18 crore</dd></div>
+          <div><dt>Box office</dt><dd>₹47.10 crore</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <!-- Plot -->
+    <section id="plot" aria-labelledby="h-plot">
+      <h2 id="h-plot">Plot</h2>
+      <article class="flow">
+        <p>Siddharth “Sid” Mehra is a bright but aimless student in Mumbai whose comfortable lifestyle keeps him unmotivated. He meets Aisha Banerjee, an aspiring writer from Kolkata, who has moved to the city to work at Mumbai Beat magazine. After failing his final exams and clashing with his parents and friends, Sid moves into Aisha’s newly rented apartment and begins to shoulder everyday responsibilities.</p>
+        <p>Encouraged by Aisha, Sid rekindles a love for photography and earns an internship at Mumbai Beat. As he learns discipline and independence, he reconciles with his family and friends. Aisha briefly dates her editor, Kabir, but realizes they’re incompatible and discovers her feelings for Sid. After professional and personal milestones, Sid and Aisha finally confess their love, marking Sid’s transformation from a carefree teen into a grounded young adult.</p>
+      </article>
+    </section>
+
+    <!-- Cast -->
+    <section id="cast" aria-labelledby="h-cast">
+      <h2 id="h-cast">Cast</h2>
+      <ul class="columns">
+        <li>Ranbir Kapoor — Siddharth “Sid” Mehra</li>
+        <li>Konkona Sen Sharma — Aisha Banerjee</li>
+        <li>Anupam Kher — Ram Mehra</li>
+        <li>Supriya Pathak — Sarita Mehra</li>
+        <li>Rahul Khanna — Kabir Chaudhary</li>
+        <li>Shikha Talsania — Laxmi Advani</li>
+        <li>Namit Das — Rishi Raheja</li>
+        <li>Kashmera Shah — Sonia Gill</li>
+      </ul>
+    </section>
+
+    <!-- Production -->
+    <section id="production" aria-labelledby="h-prod">
+      <h2 id="h-prod">Production</h2>
+      <p>The film was shot extensively in Mumbai—including South Mumbai and Bandra—with college sequences filmed at H. R. College of Commerce and Economics near Churchgate. The story reflects director Ayan Mukerji’s contemporary, character-focused sensibility, framing urban independence and found-family experiences common to young professionals in big cities.</p>
+    </section>
+
+    <!-- Release -->
+    <section id="release" aria-labelledby="h-release">
+      <h2 id="h-release">Release</h2>
+      <p><em>Wake Up Sid</em> opened on 2 October 2009 and performed well in India and overseas. It later aired on Indian television networks and was released on home media. The film’s gentle tone, music, and lead performances helped it find a long tail of audience appreciation beyond its theatrical run.</p>
+    </section>
+
+    <!-- Critical Reception -->
+    <section id="reception" aria-labelledby="h-reception">
+      <h2 id="h-reception">Critical Reception</h2>
+      <p>Critics widely praised the film’s naturalistic direction, performances, and believable urban themes. Reviews highlighted Ranbir Kapoor’s restrained lead turn and Konkona Sen Sharma’s grounded portrayal of an independent writer. Some dissenters found the ending conventional, but overall consensus remains strongly positive.</p>
+    </section>
+
+    <!-- Box Office -->
+    <section id="boxoffice" aria-labelledby="h-box">
+      <h2 id="h-box">Box Office</h2>
+      <p>With an estimated budget around ₹18 crore, <em>Wake Up Sid</em> grossed over ₹47 crore worldwide. It opened strongly in India, maintained momentum across multiple weeks, and performed respectably in overseas markets.</p>
+    </section>
+
+    <!-- Accolades -->
+    <section id="accolades" aria-labelledby="h-acc">
+      <h2 id="h-acc">Accolades</h2>
+      <p>At the 55th Filmfare Awards, the film earned nine nominations and won three: Best Debut Director (Ayan Mukerji), Best Actor (Critics) (Ranbir Kapoor), and Best Female Playback Singer (Kavita Seth for “Iktara”). It also received honors at Producers Guild and IIFA awards, among others.</p>
+    </section>
+
+    <!-- Soundtrack -->
+    <section id="soundtrack" aria-labelledby="h-ost">
+      <h2 id="h-ost">Soundtrack</h2>
+      <p>The songs were composed by Shankar–Ehsaan–Loy with lyrics by Javed Akhtar, and the background score by Amit Trivedi. The track “Iktara”—associated with Trivedi and vocalist Kavita Seth—became emblematic of the film’s mellow, introspective tone.</p>
+    </section>
+
+    <!-- Accessible Form -->
+    <section id="feedback" aria-labelledby="h-feedback">
+      <h2 id="h-feedback">Feedback Form</h2>
+      <p id="form-status" class="sr-only" aria-live="polite"></p>
+
+      <form class="form" aria-describedby="form-help" onsubmit="document.getElementById('form-status').textContent='Form submitted successfully.'">
+        <p id="form-help" class="help">All fields marked with <span aria-hidden="true">*</span> are required.</p>
+
+        <fieldset>
+          <legend>Contact Information</legend>
+
+          <div class="field">
+            <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Page Feedback</legend>
+
+          <div class="field">
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic">
+              <option value="content">Content accuracy</option>
+              <option value="a11y">Accessibility</option>
+              <option value="design">Design & readability</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <span id="rating-label">Overall rating</span>
+            <div class="choices" role="radiogroup" aria-labelledby="rating-label">
+              <div>
+                <input type="radio" id="rate-good" name="rating" value="good" checked>
+                <label for="rate-good">Good</label>
+              </div>
+              <div>
+                <input type="radio" id="rate-average" name="rating" value="average">
+                <label for="rate-average">Average</label>
+              </div>
+              <div>
+                <input type="radio" id="rate-poor" name="rating" value="poor">
+                <label for="rate-poor">Poor</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="comments">Comments</label>
+            <textarea id="comments" name="comments" rows="4" aria-describedby="comments-help"></textarea>
+            <small id="comments-help" class="help">Please avoid sharing sensitive data.</small>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit">
+            <span class="material-icons" aria-hidden="true">send</span>
+            Submit
+          </button>
+          <button type="reset" class="secondary">
+            <span class="material-icons" aria-hidden="true">restart_alt</span>
+            Reset
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Accessible Data Table -->
+    <section id="datatable" aria-labelledby="h-table">
+      <h2 id="h-table">Accessible Data Table</h2>
+
+      <div class="table-wrap" role="region" aria-labelledby="cap-box" tabindex="0">
+        <table class="table">
+          <caption id="cap-box">Wake Up Sid — Selected Box Office Figures</caption>
+          <thead>
+            <tr>
+              <th scope="col">Market</th>
+              <th scope="col">Opening Weekend (₹)</th>
+              <th scope="col">Total Gross (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">India</th>
+              <td>170,000,000</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <th scope="row">United States</th>
+              <td>—</td>
+              <td>~ 58,000,000</td>
+            </tr>
+            <tr>
+              <th scope="row">United Kingdom</th>
+              <td>—</td>
+              <td>~ 13,800,000</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Worldwide (approx.)</th>
+              <td>—</td>
+              <td>~ 471,000,000</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <p class="help">Table includes a <strong>caption</strong>, proper header scopes (<strong>th</strong> with <strong>scope</strong>), and a keyboard-focusable region for horizontal scrolling on small screens.</p>
+    </section>
+
+    <!-- References Note -->
+    <section id="sources" aria-labelledby="h-sources">
+      <h2 id="h-sources">References Note</h2>
+      <p>Text for this educational recode is adapted (“lifted”) from the Wikipedia article <a href="https://en.wikipedia.org/wiki/Wake_Up_Sid" target="_blank" rel="noopener">Wake Up Sid</a>. Per assignment rules, only the public text content is reused; no Wikipedia HTML/CSS/JS code is used. All sections are titled to ensure a clean HTML5 outline.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2025 Zaim Jami — CSCI 3150</p>
+      <p><a href="index.html">Back to class portal</a></p>
+    </div>
+  </footer>
+</body>
+</html>
