@@ -1,5 +1,4 @@
 :root{
-  /* Your original palette */
   --bg: #0b0c0f;        /* near-black for header/footer */
   --bg-2:#0f1116;
   --paper:#ffffff;
@@ -41,7 +40,6 @@ a:focus{ outline:2px solid var(--accent); outline-offset:2px; }
    Layout
    ================================ */
 .container{
-  /* keep both limits: the smaller wins */
   max-width: min(var(--max-ch), var(--max-width));
   margin-inline:auto;
   padding: clamp(1rem, 2vw, 1.5rem);
