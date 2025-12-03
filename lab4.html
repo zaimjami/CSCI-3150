@@ -3,139 +3,194 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Barfi! (2012) — Multicolumn Grid + Flex Layout</title>
+  <title>Barfi! (2012) — Lab 4 Accessible Grid/Flex Layout</title>
 
-  <!-- Google Fonts (2): Display for headings, Inter for body -->
+  <!-- Google Fonts (same as site) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-  <!-- Material Icons (decorative only; hidden from SR in markup) -->
+  <!-- Google Material Icons (decorative; hidden via aria-hidden when used) -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <link rel="stylesheet" href="lab4.css" />
+  <!-- Shared stylesheet that already contains the .lab4 rules you provided -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <!-- Keyboard skip (drops down on focus) -->
+<body class="lab4">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="wrap grid">
-    <!-- HEADER -->
-    <header class="site-header" role="banner" aria-label="Site header">
-      <div class="brand">
-        <span class="material-icons" aria-hidden="true">local_movies</span>
+  <div class="wrap">
+    <div class="grid" role="application" aria-label="Page grid layout">
+      <!-- Header -->
+      <header class="site-header" role="banner" style="grid-area: header;">
         <h1 class="site-title">Barfi!</h1>
-      </div>
-      <p class="site-tag">2012 Indian Hindi-language romantic comedy by Anurag Basu</p>
-    </header>
+        <p class="site-tag">2012 Indian Hindi-language romantic comedy-drama film</p>
+      </header>
 
-    <!-- NAV (Flexbox; becomes vertical/thumb-able on mobile) -->
-    <nav class="site-nav" aria-label="Primary">
-      <ul class="menu">
-        <li><a href="index.html"><span class="material-icons" aria-hidden="true">home</span> Portal</a></li>
-        <li><a href="#overview"><span class="material-icons" aria-hidden="true">info</span> Overview</a></li>
-        <li><a href="#plot"><span class="material-icons" aria-hidden="true">menu_book</span> Plot</a></li>
-        <li><a href="#cast"><span class="material-icons" aria-hidden="true">group</span> Cast</a></li>
-        <li><a href="#production"><span class="material-icons" aria-hidden="true">movie</span> Production</a></li>
-        <li><a href="#reception"><span class="material-icons" aria-hidden="true">reviews</span> Reception</a></li>
-        <li><a href="#boxoffice"><span class="material-icons" aria-hidden="true">show_chart</span> Box office</a></li>
-      </ul>
-    </nav>
-
-    <!-- ASIDE 1 (left) -->
-    <aside class="aside aside-1" aria-labelledby="credits-h">
-      <h2 id="credits-h">Key credits</h2>
-      <dl class="kv">
-        <div><dt>Directed by</dt><dd>Anurag Basu</dd></div>
-        <div><dt>Written by</dt><dd>Anurag Basu; dialogues: Sanjeev Datta</dd></div>
-        <div><dt>Produced by</dt><dd>Ronnie Screwvala; Siddharth Roy Kapur</dd></div>
-        <div><dt>Starring</dt><dd>Ranbir Kapoor; Priyanka Chopra; Ileana D’Cruz</dd></div>
-        <div><dt>Cinematography</dt><dd>Ravi Varman</dd></div>
-        <div><dt>Edited by</dt><dd>Akiv Ali</dd></div>
-        <div><dt>Music</dt><dd>Pritam</dd></div>
-        <div><dt>Studios</dt><dd>Ishana Movies; UTV Motion Pictures</dd></div>
-        <div><dt>Distributed by</dt><dd>UTV Motion Pictures</dd></div>
-        <div><dt>Release date</dt><dd>14 September 2012</dd></div>
-        <div><dt>Running time</dt><dd>150 minutes</dd></div>
-        <div><dt>Country / Language</dt><dd>India / Hindi</dd></div>
-        <div><dt>Budget</dt><dd>₹35 crore</dd></div>
-        <div><dt>Box office</dt><dd>₹175 crore (worldwide)</dd></div>
-      </dl>
-
-      <figure class="poster">
-        <img src="barfi-poster.jpg" alt="Theatrical poster for Barfi! with Ranbir Kapoor, Priyanka Chopra, and Ileana D’Cruz smiling on a bench in Darjeeling." />
-        <figcaption>Theatrical release poster</figcaption>
-      </figure>
-    </aside>
-
-    <!-- MAIN -->
-    <main id="main" class="content flow" role="main" aria-label="Article content">
-      <section id="overview" aria-labelledby="overview-h">
-        <h2 id="overview-h">Overview</h2>
-        <p><em>Barfi!</em> is a 2012 Indian Hindi-language romantic comedy film written and directed by <strong>Anurag Basu</strong>, produced by <strong>Ronnie Screwvala</strong> (UTV Motion Pictures), and starring <strong>Ranbir Kapoor</strong>, <strong>Priyanka Chopra</strong>, and <strong>Ileana D’Cruz</strong>. Set in 1970s Darjeeling and Kolkata, it follows Murphy “Barfi,” a deaf-mute young man, and his relationships with Shruti and the autistic Jhilmil. The film was acclaimed for performances, direction, cinematography, music, and its portrayal of disability; it became a major commercial success and is widely regarded as a modern cult classic.</p>
-        <p>India selected <em>Barfi!</em> as its official entry for the Academy Award for Best Foreign Language Film. At the 58th Filmfare Awards, it received 12 nominations and won 7, including Best Film, Best Actor (Kapoor), Best Female Debut (D’Cruz), and Best Music Director (Pritam).</p>
-      </section>
-
-      <section id="plot" aria-labelledby="plot-h">
-        <h2 id="plot-h">Plot (condensed)</h2>
-        <p><strong>1972:</strong> Barfi, raised by his chauffeur father in Darjeeling, falls for Shruti, who ultimately marries elsewhere under family pressure. To pay for his father’s surgery, Barfi bungles a bank robbery and then intercepts the kidnapping of his autistic childhood friend <strong>Jhilmil</strong>, sheltering her in Kolkata as a protective companion.</p>
-        <p><strong>1978:</strong> Shruti reconnects with Barfi in Kolkata, creating tension with Jhilmil, who vanishes. After a ransom ruse, Jhilmil is presumed dead; Barfi is nearly framed, but inspector Dutta lets him go. Following clues, Barfi finds Jhilmil alive—the kidnappings were embezzlement schemes tied to her trust. Barfi and Jhilmil marry; Shruti remains wistful but supportive.</p>
-        <p><strong>2012:</strong> In old age and ill health, Barfi and Jhilmil pass peacefully together.</p>
-      </section>
-
-      <section id="cast" aria-labelledby="cast-h">
-        <h2 id="cast-h">Cast (selected)</h2>
-        <ul class="columns">
-          <li>Ranbir Kapoor — Murphy “Barfi”</li>
-          <li>Priyanka Chopra — Jhilmil Chatterjee</li>
-          <li>Ileana D’Cruz — Shruti Ghosh</li>
-          <li>Saurabh Shukla — Inspector Sudhanshu Dutta</li>
-          <li>Ashish Vidyarthi — Durjoy Chatterjee</li>
-          <li>Jisshu Sengupta — Ranjeet Sengupta</li>
-          <li>Roopa Ganguly — Mrs. Ghosh</li>
-          <li>Akash Khurana — Jungbahadur Chhetri</li>
-          <li>Haradhan Bandopadhyay — Daju</li>
+      <!-- Nav (Flexbox; horizontal → vertical on mobile per your CSS) -->
+      <nav class="site-nav" role="navigation" aria-label="Section navigation" style="grid-area: nav;">
+        <ul class="menu" role="list">
+          <li><a href="#overview"><span class="material-icons" aria-hidden="true">info</span> Overview</a></li>
+          <li><a href="#plot"><span class="material-icons" aria-hidden="true">menu_book</span> Plot</a></li>
+          <li><a href="#cast">Cast</a></li>
+          <li><a href="#production">Production</a></li>
+          <li><a href="#soundtrack">Soundtrack</a></li>
+          <li><a href="#boxoffice">Box office</a></li>
+          <li><a href="#accolades">Accolades</a></li>
+          <li><a href="#resources">Resources</a></li>
         </ul>
-      </section>
+      </nav>
 
-      <section id="production" aria-labelledby="prod-h">
-        <h2 id="prod-h">Production</h2>
-        <p>Anurag Basu developed <em>Barfi!</em> from a short story into a nonlinear, dual-period narrative, citing homages to Chaplin and Keaton via physical comedy and silent-cinema flavor. Principal photography ran 2011–2012 across Darjeeling, Kolkata, Mumbai, Coimbatore/Pollachi, and Ooty.</p>
-        <p>Kapoor’s performance drew on Chaplin-esque physicality; Chopra researched autism extensively for Jhilmil; D’Cruz debuted in Hindi cinema, also serving as the film’s narrator.</p>
-      </section>
+      <!-- Aside 1 (Infobox + poster) -->
+      <aside class="aside aside-1" aria-labelledby="infobox-h">
+        <h2 id="infobox-h">Key credits & data</h2>
 
-      <section id="reception" aria-labelledby="reception-h">
-        <h2 id="reception-h">Reception & accolades</h2>
-        <p>Critics praised the film’s performances (especially Kapoor and Chopra), direction, visual design, and score. The film earned strong domestic and overseas grosses (see “Box office”) and received numerous awards, including multiple Filmfare, Screen, and Zee Cine wins. It was India’s submission to the 85th Academy Awards.</p>
-      </section>
+        <figure class="poster">
+          <!-- Put your local poster image here (web-optimized, ~120–260px wide) -->
+          <img src="images/barfi-poster.jpg" alt="Theatrical poster for Barfi! showing the three leads on a bench." />
+          <figcaption class="note">Theatrical release poster</figcaption>
+        </figure>
 
-      <section id="boxoffice" aria-labelledby="box-h">
-        <h2 id="box-h">Box office</h2>
-        <p>Despite a limited opening, <em>Barfi!</em> posted high multiplex occupancy and sustained word-of-mouth, earning roughly <strong>₹1.06 billion</strong> gross in India and about <strong>₹1.75 billion</strong> worldwide, placing among the top-grossing Hindi films of 2012.</p>
-      </section>
+        <dl class="kv" style="margin-top:.75rem">
+          <div><dt>Directed by</dt><dd>Anurag Basu</dd></div>
+          <div><dt>Written by</dt><dd>Anurag Basu</dd></div>
+          <div><dt>Dialogues</dt><dd>Sanjeev Datta</dd></div>
+          <div><dt>Produced by</dt><dd>Ronnie Screwvala; Siddharth Roy Kapur</dd></div>
+          <div><dt>Starring</dt><dd>Ranbir Kapoor; Priyanka Chopra; Ileana D’Cruz</dd></div>
+          <div><dt>Cinematography</dt><dd>Ravi Varman</dd></div>
+          <div><dt>Edited by</dt><dd>Akiv Ali</dd></div>
+          <div><dt>Music</dt><dd>Pritam</dd></div>
+          <div><dt>Studios</dt><dd>Ishana Movies; UTV Motion Pictures</dd></div>
+          <div><dt>Release date</dt><dd>14 September 2012</dd></div>
+          <div><dt>Running time</dt><dd>150 minutes</dd></div>
+          <div><dt>Country / Language</dt><dd>India / Hindi</dd></div>
+          <div><dt>Budget</dt><dd>₹35 crore</dd></div>
+          <div><dt>Box office</dt><dd>~₹175 crore (worldwide)</dd></div>
+        </dl>
+      </aside>
 
-      <p class="note">Content paraphrased/lifted from the Wikipedia article: <a href="https://en.wikipedia.org/wiki/Barfi!" target="_blank" rel="noopener">Barfi! — Wikipedia</a>. For coursework only.</p>
-    </main>
+      <!-- Main -->
+      <main id="main" class="content flow" role="main" aria-labelledby="overview-h">
+        <section id="overview" class="flow" aria-labelledby="overview-h">
+          <h2 id="overview-h">Overview</h2>
+          <p class="lead">
+            <em>Barfi!</em> is a romantic comedy-drama set in 1970s Darjeeling and Kolkata. It follows Murphy “Barfi”
+            (a deaf and mute young man), Shruti, and Jhilmil (on the autism spectrum), weaving a non-linear story about
+            care, choice, and belonging. On release in 2012, the film earned critical acclaim for its performances,
+            direction, cinematography, music, and humane portrayal of disability, and became one of the year’s
+            commercial successes in India and overseas.
+          </p>
+        </section>
 
-    <!-- ASIDE 2 (right) -->
-    <aside class="aside aside-2" aria-labelledby="quick-h">
-      <h2 id="quick-h">Quick links</h2>
-      <ul>
-        <li><a href="https://www.youtube.com/watch?v=Cjbo1hJb0jE" target="_blank" rel="noopener">Official trailer</a></li>
-        <li><a href="https://open.spotify.com/album/6K8n6c8Yv9OeYz5k1zXrKc" target="_blank" rel="noopener">Soundtrack (stream)</a></li>
-        <li><a href="https://www.imdb.com/title/tt2082197/" target="_blank" rel="noopener">IMDb</a></li>
-        <li><a href="#production">Production notes</a></li>
-        <li><a href="#reception">Critical reception</a></li>
-      </ul>
+        <section id="plot" class="flow" aria-labelledby="plot-h">
+          <h2 id="plot-h">Plot</h2>
+          <p>
+            In Darjeeling (1972), prank-loving Barfi meets Shruti, who loves him but yields to family pressure to marry
+            someone “safer.” Struggling to pay for his father’s medical care, Barfi crosses paths again with Jhilmil, an
+            autistic childhood friend and heiress; the two form a gentle, protective bond and move to Kolkata. Years
+            later, Shruti—unhappy in marriage—reenters Barfi’s life, triggering jealousy, a missing-person hunt for
+            Jhilmil, and revelations about schemes surrounding her trust. Ultimately, Barfi and Jhilmil reunite and
+            build a life together; in the present day, they pass away peacefully, side by side.
+          </p>
+        </section>
 
-      <h2 id="soundtrack-h">Soundtrack notes</h2>
-      <p>Score and songs by <strong>Pritam</strong>; lyrics by Swanand Kirkire, Ashish Pandit, Neelesh Misra, and Sayeed Quadri. The album (6 songs) released 9 Aug 2012 with bossa-nova influences; “Fatafati” was issued as a promotional video single.</p>
-    </aside>
+        <section id="cast" class="flow" aria-labelledby="cast-h">
+          <h2 id="cast-h">Cast</h2>
+          <ul class="columns">
+            <li>Ranbir Kapoor — Murphy “Barfi”</li>
+            <li>Priyanka Chopra — Jhilmil Chatterjee</li>
+            <li>Ileana D’Cruz — Shruti Ghosh Sengupta</li>
+            <li>Saurabh Shukla — Inspector Sudhanshu Dutta</li>
+            <li>Ashish Vidyarthi — Durjoy Chatterjee</li>
+            <li>Jisshu Sengupta — Ranjeet Sengupta</li>
+            <li>Roopa Ganguly — Mrs. Ghosh</li>
+            <li>Haradhan Bandopadhyay — Daju</li>
+          </ul>
+        </section>
 
-    <!-- FOOTER -->
-    <footer class="site-footer" role="contentinfo">
-      <p>&copy; 2025 Zaim Jami — CSCI 3150 • Lab 4 (Accessible CSS)</p>
-      <p><a href="index.html">Back to class portal</a></p>
-    </footer>
+        <section id="production" class="flow" aria-labelledby="prod-h">
+          <h2 id="prod-h">Production</h2>
+          <p>
+            Anurag Basu wrote the film during and after <em>Kites</em>, retaining a non-linear structure to keep a
+            simple story engaging. Principal photography ran 2011–2012 across Mumbai, Darjeeling, Kolkata and the Nilgiris.
+            Physical comedy and silent-era homages (Keaton/Chaplin) shape set-pieces while the narrative centers care and
+            interdependence over ableist “fixing.”
+          </p>
+        </section>
+
+        <section id="soundtrack" class="flow" aria-labelledby="ost-h">
+          <h2 id="ost-h">Soundtrack</h2>
+          <p>
+            Pritam’s score folds in bossa-nova inflections and lilting themes; lyrics include work by Swanand Kirkire,
+            Ashish Pandit, Neelesh Misra and Sayeed Quadri. The album released 9 Aug 2012 and was widely praised for
+            its warmth and melodic through-lines.
+          </p>
+        </section>
+
+        <section id="boxoffice" class="flow" aria-labelledby="bo-h">
+          <h2 id="bo-h">Box office</h2>
+          <p>
+            Opening strong at multiplexes, <em>Barfi!</em> sustained multi-week legs and finished near ₹1.75 billion
+            worldwide gross, ranking among 2012’s top Hindi releases domestically and overseas.
+          </p>
+        </section>
+
+        <section id="accolades" class="flow" aria-labelledby="acc-h">
+          <h2 id="acc-h">Accolades (selected)</h2>
+          <div class="table-wrap">
+            <table class="table" role="table" aria-describedby="acc-note">
+              <caption id="acc-note">Major awards and nominations</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Ceremony</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Recipient(s)</th>
+                  <th scope="col">Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Filmfare (58th)</td>
+                  <td>Best Film; Best Actor; Best Music Director; others</td>
+                  <td>Ensemble; Ranbir Kapoor; Pritam</td>
+                  <td>Won (7 of 12+ noms)</td>
+                </tr>
+                <tr>
+                  <td>Screen Awards (19th)</td>
+                  <td>Best Director; Best Actor; Jodi No. 1</td>
+                  <td>Anurag Basu; Ranbir Kapoor; Kapoor–Chopra</td>
+                  <td>Won multiple</td>
+                </tr>
+                <tr>
+                  <td>Oscar Entry (India)</td>
+                  <td>Best Foreign Language Film (submission)</td>
+                  <td>—</td>
+                  <td>Official entry</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <!-- Aside 2 (Resources / Notes) -->
+      <aside class="aside aside-2 flow" aria-labelledby="resources">
+        <h2 id="resources">Resources</h2>
+        <p class="note">
+          <span class="material-icons" aria-hidden="true">info</span>
+          This page is a semantic recode using lifted facts (no ipsum). Validate with Nu, WAVE, HTML5 Outliner, and Lighthouse; try with VoiceOver/NVDA.
+        </p>
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/Barfi!" target="_blank" rel="noopener">Wikipedia: <em>Barfi!</em></a></li>
+          <li><a href="index.html">Back to class portal</a></li>
+        </ul>
+      </aside>
+
+      <!-- Footer -->
+      <footer class="site-footer" role="contentinfo">
+        <small>&copy; 2025 Zaim Jami — CSCI 3150 Lab 4 • Grid (2D) + Flexbox (1D) • Responsive &amp; Accessible</small>
+      </footer>
+    </div>
   </div>
 </body>
 </html>
+
