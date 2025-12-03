@@ -257,3 +257,88 @@ main{
 
 /* Material Icons */
 .material-icons{ vertical-align:middle; font-size:1.1em; }
+
+/* === Lab 4 (scoped) ===================================================== */
+.lab4 .wrap{max-width:1200px;margin-inline:auto;padding:1rem}
+.lab4 .grid{
+  display:grid; gap:1rem;
+  grid-template-columns:260px 1fr 300px;
+  grid-template-areas:
+    "header header header"
+    "nav    nav    nav"
+    "aside1 main   aside2"
+    "footer footer footer";
+}
+
+/* header / nav */
+.lab4 .site-header{grid-area:header;background:linear-gradient(90deg,#184e77,#1f7a8c);color:#fff;border-radius:14px;padding:1rem 1.25rem;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+.lab4 .site-title{color:#fff;margin:0}
+.lab4 .site-tag{margin:.25rem 0 0;color:#e6f0ff}
+.lab4 .site-nav{grid-area:nav;background:#0b1220;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+.lab4 .menu{
+  list-style:none; display:flex; flex-wrap:wrap; gap:.25rem .5rem;
+  padding:.5rem; margin:0;
+}
+.lab4 .menu a{
+  display:inline-flex; align-items:center; gap:.35rem;
+  color:#e6edf6; text-decoration:none; font-weight:600;
+  padding:.55rem .75rem; border-radius:.5rem;
+}
+.lab4 .menu a:hover, .lab4 .menu a:focus-visible{background:#111827}
+
+/* areas */
+.lab4 .aside{background:#fff;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.08);padding:1rem}
+.lab4 .aside-1{grid-area:aside1}
+.lab4 .aside-2{grid-area:aside2}
+.lab4 .content{grid-area:main;background:#fff;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.08);padding:1.25rem}
+.lab4 .site-footer{grid-area:footer;text-align:center;color:#334155;background:#e9eef7;border-radius:14px;padding:.9rem 1rem}
+
+/* infobox & poster */
+.lab4 .kv{margin:0}
+.lab4 .kv>div{display:grid;grid-template-columns:1fr 1.2fr;gap:.4rem .75rem;padding:.35rem 0;border-bottom:1px dashed #e5e7eb}
+.lab4 .kv>div:last-child{border-bottom:0}
+.lab4 .poster{margin-top:1rem;text-align:center}
+.lab4 .poster img{width:100%;max-width:260px;height:auto;border-radius:.75rem;box-shadow:0 12px 32px rgba(0,0,0,.18)}
+
+/* skip link: keep your global, but ensure visible on this page */
+.lab4 .skip-link{position:absolute;left:.5rem;top:-3rem;background:#e9c46a;color:#111;text-decoration:none;padding:.4rem .6rem;border-radius:.5rem;z-index:1000}
+.lab4 .skip-link:focus{top:.5rem}
+
+/* tablet: reorder with grid areas */
+@media (max-width:1024px){
+  .lab4 .grid{
+    grid-template-columns:220px 1fr;
+    grid-template-areas:
+      "header header"
+      "nav    nav"
+      "main   aside1"
+      "aside2 aside2"
+      "footer footer";
+  }
+}
+
+/* mobile: single column + thumb-able vertical nav */
+@media (max-width:640px){
+  .lab4 .grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "aside1"
+      "aside2"
+      "footer";
+  }
+  .lab4 .menu{flex-direction:column}
+  .lab4 .menu a{
+    padding:1rem 1.1rem;                /* big tap target */
+    border:1px solid #1f2937;
+    background:#0e1629;
+    border-radius:.6rem;
+  }
+}
+
+/* small niceties */
+.lab4 .lead{color:#374151}
+.lab4 .badge{display:inline-block;background:#edf2f7;color:#1f2937;padding:.15rem .45rem;border-radius:.35rem;font-size:.85rem;font-weight:600}
+
