@@ -18,25 +18,57 @@
     </div>
   </header>
 
- <nav class="site-nav" aria-label="Primary" role="navigation">
-  <div class="container">
-    <ul class="menu">
-      <li><a href="assignment1.html">Assignment 1 — Gehraiyaan</a></li>
-      <li><a href="assignment2.html">Assignment 2 — Zindagi Na Milegi Dobara</a></li>
-      <li><a href="lab3-wake-up-sid.html">Lab 3 — Wake Up Sid (Semantic & Accessible)</a></li>
-      <li><a href="lab4.html">Lab 4 — Accessible CSS Grid/Flex (Barfi!)</a></li>
-    </ul>
-  </div>
-</nav>
+  <nav class="site-nav" aria-label="Primary" role="navigation">
+    <div class="container">
+      <ul class="menu">
+        <li><a href="assignment1.html">Assignment 1 — Gehraiyaan</a></li>
+        <li><a href="assignment2.html">Assignment 2 — Zindagi Na Milegi Dobara</a></li>
+        <li><a href="lab3-wake-up-sid.html">Lab 3 — Wake Up Sid (Semantic & Accessible)</a></li>
+        <li><a href="lab4.html">Lab 4 — Accessible CSS Grid/Flex (Barfi!)</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <main id="main" class="container flow">
-    <section aria-labelledby="about-heading">
+  <main id="main" class="container flow" role="main">
+    <!-- About Me -->
+    <section aria-labelledby="about-heading" class="flow">
       <h2 id="about-heading">About Me</h2>
-      <p>Hey! I’m <strong>Zaim Jami</strong>, a CS student at CU Boulder. This portal links my coding assignments for CSCI 3150. I’m into clean, accessible web UI, and I’ll be iterating on accessibility features through the semester.</p>
+
+      <figure class="media">
+        <!-- Replace with your real photo file; keep a descriptive alt -->
+        <img src="zaim.jpg" alt="Portrait of Zaim Jami, outdoors in the Colorado mountains." />
+        <figcaption class="sr-only">Photo used on the class portal</figcaption>
+      </figure>
+
+      <p>I’m Zaim Jami, a CS student at CU Boulder and a Software Engineering Intern at Spectrum.</p>
+<p>I love turning messy ideas into clean, accessible interfaces that work with a keyboard, screen readers, and phones first. Colorado is home—I recharge in the mountains, and ski whenever classes and code freezes allow. In the kitchen I bounce between Mediterranean staples and South Asian comfort food, which keeps my meal prep interesting. On campus I build nonprofit apps with Blueprint, where I’ve learned to ship for real users and iterate from feedback. Lately I’m deep into semantic HTML, responsive CSS grid/flex patterns, and measuring performance the boring-but-reliable way. I’m also leveling up my TypeScript/React patterns and testing, because good DX helps me move fast without breaking access. Away from the screen I read, take photos around Boulder, and try to be a better teammate and mentor each semester.</p>
     </section>
+
+    <!-- Projects -->
+    <section aria-labelledby="projects-heading" class="flow">
+      <h2 id="projects-heading">Projects</h2>
+      <ul>
+        <li><a href="assignment2.html">Lab #2 — Coding & Posting a Web Page (Basics)</a></li>
+        <li><a href="lab3-wake-up-sid.html">Lab #3 — Tables, Forms, Screen Reading, Skip Nav</a></li>
+        <li><a href="lab4.html">Lab #4 — Accessible CSS Layout (Grid/Flex + Responsive)</a></li>
+      </ul>
+    </section>
+
+    <!-- Resources -->
+    <aside aria-labelledby="resources-heading" class="flow">
+      <h2 id="resources-heading">Resources</h2>
+      <ul>
+        <li><a href="https://validator.w3.org/nu/" target="_blank" rel="noopener">W3C Nu HTML Validator</a></li>
+        <li><a href="https://wave.webaim.org/" target="_blank" rel="noopener">WAVE Evaluation Tool</a></li>
+        <li><a href="https://www.html5outliner.com/" target="_blank" rel="noopener">HTML5 Outliner</a></li>
+        <li><a href="https://www.silktide.com/" target="_blank" rel="noopener">Silktide</a></li>
+        <li><a href="https://developer.chrome.com/docs/lighthouse/overview" target="_blank" rel="noopener">Lighthouse (Chrome DevTools)</a></li>
+        <li><a href="https://material.io/resources/icons/" target="_blank" rel="noopener">Google Material Icons</a></li>
+      </ul>
+    </aside>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
       <p>&copy; 2025 Zaim Jami</p>
     </div>
