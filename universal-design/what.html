@@ -34,64 +34,64 @@
 
   <main id="main" class="grid wrap">
     <article class="content flow">
-      <h2>Principles</h2>
-      <p>Universal design applies the WCAG framework in a product mindset: interfaces must be <strong>Perceivable</strong>, <strong>Operable</strong>, <strong>Understandable</strong>, and <strong>Robust</strong>.</p>
+  <h2>What universal design means in practice</h2>
 
-      <section aria-labelledby="p">
-        <h3 id="p">Perceivable</h3>
-        <ul>
-          <li>Provide text alternatives for non-text media (alt text, captions, transcripts).</li>
-          <li>Use sufficient color contrast and never rely on color alone for meaning.</li>
-          <li>Respect user font size and motion preferences.</li>
-        </ul>
-      </section>
+  <section aria-labelledby="semantics">
+    <h3 id="semantics">1) Native semantics first</h3>
+    <ul>
+      <li>Use real elements for real jobs (e.g., <code>&lt;button&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;fieldset&gt;</code>, <code>&lt;summary&gt;</code>/<code>&lt;details&gt;</code>).</li>
+      <li>Expose <em>name/role/value</em> automatically instead of scripting it; only add ARIA when no native exists. </li>
+      <li>For math or chemistry, prefer <strong>MathML</strong> where feasible; browsers increasingly support it natively. </li>
+    </ul>
+  </section>
 
-      <section aria-labelledby="o">
-        <h3 id="o">Operable</h3>
-        <ul>
-          <li>All functionality via keyboard; visible focus indicators everywhere.</li>
-          <li>Logical tab order and skip navigation.</li>
-          <li>Touch targets sized ~44–48px with comfortable spacing.</li>
-        </ul>
-      </section>
+  <section aria-labelledby="inputs">
+    <h3 id="inputs">2) Inputs that fail safely</h3>
+    <ul>
+      <li>Label every control (<code>&lt;label for&gt;</code> or wrapping label). Provide <code>aria-describedby</code> for help/error text.</li>
+      <li>Use <code>autocomplete</code> tokens (<code>name</code>, <code>postal-code</code>, <code>cc-number</code>) and <code>inputmode</code> for better mobile keyboards.</li>
+      <li>Group related fields with <code>&lt;fieldset&gt;</code>/<code>&lt;legend&gt;</code> (e.g., shipping vs billing).</li>
+    </ul>
+  </section>
 
-      <section aria-labelledby="u">
-        <h3 id="u">Understandable</h3>
-        <ul>
-          <li>Predictable navigation and labels; descriptive link text.</li>
-          <li>Helpful form guidance, error prevention, and clear messages.</li>
-          <li>Readable type scale and generous line-height/spacing.</li>
-        </ul>
-      </section>
+  <section aria-labelledby="interaction">
+    <h3 id="interaction">3) Interaction patterns that match APG</h3>
+    <p>When you can’t use a native element (e.g., tabs, menu button), follow the ARIA Authoring Practices for keyboard order, focus management, roles and states.</p>
+    <ul>
+      <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/" rel="noopener">Disclosure</a> (hide/show) and <a href="https://www.w3.org/WAI/ARIA/apg/patterns/accordion/" rel="noopener">Accordion</a></li>
+      <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/" rel="noopener">Tabs</a> and <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/" rel="noopener">Menu button</a></li>
+    </ul>
+  </section>
 
-      <section aria-labelledby="r">
-        <h3 id="r">Robust</h3>
-        <ul>
-          <li>Semantic HTML with proper landmarks and headings.</li>
-          <li>ARIA only when native semantics can’t express the role/state.</li>
-          <li>Test with multiple AT, browsers, and devices.</li>
-        </ul>
-      </section>
-    </article>
+  <section aria-labelledby="perception">
+    <h3 id="perception">4) Perception & motion</h3>
+    <ul>
+      <li>Respect <code>prefers-reduced-motion</code>; provide a no-motion path for parallax, autoplay, or marquee-like effects. </li>
+      <li>Ensure text/background contrast meets WCAG (use WebAIM checker during design). </li>
+      <li>Give focus a visible, high-contrast style that passes WCAG 2.2 <em>Focus Appearance</em>. </li>
+    </ul>
+  </section>
+</article>
 
-    <aside class="aside-1 flow" aria-labelledby="patterns">
-      <h2 id="patterns">Patterns that scale</h2>
-      <ul>
-        <li>Semantic navigation (header/nav/main/aside/footer)</li>
-        <li>Responsive grid/flex layouts</li>
-        <li>Accessible media (alt, captions, transcripts)</li>
-        <li>Resilient forms and tables</li>
-      </ul>
-    </aside>
+<aside class="aside-1 flow" aria-labelledby="check">
+  <h2 id="check">Design checklist</h2>
+  <ul>
+    <li>Headings form a real outline; landmarks (<code>header</code>, <code>nav</code>, <code>main</code>, <code>aside</code>, <code>footer</code>) exist.</li>
+    <li>Skip link works and is visible on focus.</li>
+    <li>Nav is operable with keyboard; focus order matches reading order.</li>
+    <li>Buttons are buttons; links are links; no <code>div</code>-as-control.</li>
+  </ul>
+</aside>
 
-    <aside class="aside-2 flow" aria-labelledby="learn">
-      <h2 id="learn">Learn more</h2>
-      <ul>
-        <li><a href="https://www.w3.org/WAI/quickref/" rel="noopener">WCAG Quick Ref</a></li>
-        <li><a href="https://inclusive-components.design/" rel="noopener">Inclusive Components</a></li>
-        <li><a href="https://designsystem.digital.gov/" rel="noopener">U.S. Web Design System</a></li>
-      </ul>
-    </aside>
+<aside class="aside-2 flow" aria-labelledby="resources">
+  <h2 id="resources">Deep-dive resources</h2>
+  <ul>
+    <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/" rel="noopener">ARIA APG 1.2 patterns</a> (keyboard behavior, roles)</li>
+    <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/" rel="noopener">WCAG 2.2 Understanding docs</a> (normative guidance)</li>
+    <li><a href="https://webaim.org/resources/contrastchecker/" rel="noopener">WebAIM Contrast Checker</a></li>
+    <li><a href="https://github.com/mathml-refresh/mathml" rel="noopener">MathML Core repo</a></li>
+  </ul>
+</aside>
   </main>
 
   <footer class="site-footer" role="contentinfo">
