@@ -34,87 +34,93 @@
 
   <main id="main" class="grid wrap">
     <article class="content flow">
-      <h2>Core patterns</h2>
+  <h2>How to build it (copy-paste patterns)</h2>
 
-      <section aria-labelledby="landmarks">
-        <h3 id="landmarks">Landmarks & headings</h3>
-        <ul>
-          <li>One <code>&lt;main&gt;</code> per page; consistent <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;footer&gt;</code>, and meaningful <code>&lt;aside&gt;</code>.</li>
-          <li>Heading order is hierarchical: H1 → H2 → H3 (no jumps).</li>
-          <li>Every section has a titled heading (no “untitled” outline nodes).</li>
-        </ul>
-      </section>
+  <section aria-labelledby="focus">
+    <h3 id="focus">1) Focus you can actually see</h3>
+    <pre><code>/* WCAG 2.2-friendly focus ring */
+:where(a, button, input, select, textarea):focus-visible{
+  outline: 3px solid #e9c46a;   /* high-contrast */
+  outline-offset: 2px;
+  border-radius: .25rem;
+}</code></pre>
+    <p>Meets the “change of contrast + area” intent in Focus Appearance (Minimum). </p>
+  </section>
 
-      <section aria-labelledby="focus">
-        <h3 id="focus">Keyboard & focus</h3>
-        <ul>
-          <li>Everything is reachable via keyboard (Tab/Shift+Tab/Enter/Space/Arrows/Esc).</li>
-          <li>Visible focus ring on all interactive elements.</li>
-          <li>Skip link is the first focusable control and lands in <code>#main</code>.</li>
-        </ul>
-      </section>
+  <section aria-labelledby="targets">
+    <h3 id="targets">2) Thumbable target sizes</h3>
+    <pre><code>/* 44x44 CSS px minimum target area via padding */
+.nav a{
+  display:inline-flex; align-items:center; gap:.35rem;
+  min-height: 44px; min-width: 44px; padding: .6rem .85rem;
+}</code></pre>
+    <p>Aligns to WCAG 2.2 <em>Target Size (Minimum)</em> with spacing exceptions where applicable. </p>
+  </section>
 
-      <section aria-labelledby="contrast">
-        <h3 id="contrast">Contrast, sizing, and motion</h3>
-        <ul>
-          <li>Text contrast ≥ WCAG AA; never encode meaning by color alone.</li>
-          <li>Touch targets ~44–48px with adequate spacing.</li>
-          <li>Respect <code>prefers-reduced-motion</code> and user font size.</li>
-        </ul>
-      </section>
+  <section aria-labelledby="form">
+    <h3 id="form">3) Robust forms</h3>
+    <pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;Contact Info&lt;/legend&gt;
+  &lt;label for="fn"&gt;Full name&lt;/label&gt;
+  &lt;input id="fn" name="name" autocomplete="name" required&gt;
 
-      <section aria-labelledby="forms">
-        <h3 id="forms">Forms & tables</h3>
-        <ul>
-          <li>Explicit <code>&lt;label for&gt;</code>, helpful hints, clear errors.</li>
-          <li>Table <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>/<code>&lt;tbody&gt;</code>/<code>&lt;tfoot&gt;</code>, correct header scope.</li>
-        </ul>
-      </section>
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input id="email" type="email" name="email"
+         autocomplete="email" inputmode="email" required
+         aria-describedby="email-help"&gt;
+  &lt;p id="email-help"&gt;We'll only use this to reply.&lt;/p&gt;
+&lt;/fieldset&gt;</code></pre>
+    <p>Uses native validation UI + programmatic help via <code>aria-describedby</code>.</p>
+  </section>
 
-      <section aria-labelledby="testing">
-        <h3 id="testing">Testing workflow</h3>
-        <ol>
-          <li>Validate HTML with the Nu Validator.</li>
-          <li>Run WAVE (0 errors; check contrast).</li>
-          <li>Open Lighthouse → Accessibility (90+ is the floor, aim for 100).</li>
-          <li>Check the HTML5 Outliner (no untitled sections).</li>
-          <li>Keyboard test end-to-end; then try a screen reader (VoiceOver/NVDA).</li>
-        </ol>
-      </section>
+  <section aria-labelledby="disclosure">
+    <h3 id="disclosure">4) Disclosure (show/hide) per APG</h3>
+    <pre><code>&lt;details class="faq"&gt;
+  &lt;summary&gt;What is universal design?&lt;/summary&gt;
+  &lt;p&gt;Design that works for everyone by default.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+    <p>Prefer native <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code>; for custom widgets follow APG keyboard patterns. </p>
+  </section>
 
-      <section aria-labelledby="snips">
-        <h3 id="snips">Example: skip link + focus style</h3>
-        <pre><code>&lt;a class="skip-link" href="#main"&gt;Skip to content&lt;/a&gt;
+  <section aria-labelledby="motion">
+    <h3 id="motion">5) Respect reduced motion</h3>
+    <pre><code>@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: 0s !important; }
+}</code></pre>
+    <p>Prevents vestibular triggers while preserving function. </p>
+  </section>
 
-.skip-link{
-  position:absolute; left:0; top:-40px;
-  background:#000; color:#fff; padding:.5rem .75rem; border-radius:.25rem;
-}
-.skip-link:focus{ top:0 } </code></pre>
-      </section>
-    </article>
+  <section aria-labelledby="math">
+    <h3 id="math">6) Accessible math (native)</h3>
+    <pre><code>&lt;math display="block"&gt;
+  &lt;msup&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
+  &lt;mo&gt;+&lt;/mo&gt;
+  &lt;msup&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
+  &lt;mo&gt;=&lt;/mo&gt;
+  &lt;msup&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
+&lt;/math&gt;</code></pre>
+    <p>Leverages <strong>MathML Core</strong>; assistive tech can navigate/read structure without extra JS. </p>
+  </section>
+</article>
 
-    <aside class="aside-1 flow" aria-labelledby="chk">
-      <h2 id="chk">Ship checklist</h2>
-      <ul>
-        <li>Semantic landmarks present</li>
-        <li>Headings structured</li>
-        <li>Keyboard complete + visible focus</li>
-        <li>Contrast passes</li>
-        <li>Media has text alternatives</li>
-        <li>Validated (Nu, WAVE, Lighthouse, Outliner)</li>
-      </ul>
-    </aside>
+<aside class="aside-1 flow" aria-labelledby="qa">
+  <h2 id="qa">Quick QA loop</h2>
+  <ol>
+    <li>Tab through every control—can you always see focus?</li>
+    <li>Try keyboard-only: can you open menus, activate tabs, submit forms?</li>
+    <li>Run WAVE and Nu; fix errors (contrast, missing labels, headings). </li>
+  </ol>
+</aside>
 
-    <aside class="aside-2 flow" aria-labelledby="tools">
-      <h2 id="tools">Tools</h2>
-      <ul>
-        <li><a href="https://validator.w3.org/nu/" rel="noopener">Nu HTML Validator</a></li>
-        <li><a href="https://wave.webaim.org/" rel="noopener">WAVE</a></li>
-        <li><a href="https://web.dev/measure/" rel="noopener">Lighthouse (web.dev)</a></li>
-        <li><a href="https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd" rel="noopener">axe DevTools</a></li>
-      </ul>
-    </aside>
+<aside class="aside-2 flow" aria-labelledby="links">
+  <h2 id="links">Specs & references</h2>
+  <ul>
+    <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/" rel="noopener">WCAG 2.2 Understanding</a></li>
+    <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/" rel="noopener">ARIA Authoring Practices 1.2</a></li>
+    <li><a href="https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion" rel="noopener">MDN: prefers-reduced-motion</a></li>
+    <li><a href="https://webaim.org/resources/contrastchecker/" rel="noopener">WebAIM Contrast Checker</a></li>
+  </ul>
+</aside>
   </main>
 
   <footer class="site-footer" role="contentinfo">
