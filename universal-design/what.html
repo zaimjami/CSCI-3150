@@ -33,66 +33,77 @@
   </nav>
 
   <main id="main" class="grid wrap">
-    <article class="content flow">
-  <h2>What universal design means in practice</h2>
+  <article class="content flow">
+    <h2>What universal design looks like in code, content, and structure</h2>
 
-  <section aria-labelledby="semantics">
-    <h3 id="semantics">1) Native semantics first</h3>
+    <h3>Definition (my short version)</h3>
+    <p>Universal design means most people can use your site, in most situations, without special workarounds. It’s accessibility + usability + resilience: equitable, flexible, intuitive, forgiving, low-effort, and roomy enough for different inputs (mouse, touch, keyboard, voice) and contexts (sunlight, low bandwidth, motion sensitivity).</p>
+
+    <h3>Plan before pixels: IA and language</h3>
     <ul>
-      <li>Use real elements for real jobs (e.g., <code>&lt;button&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;fieldset&gt;</code>, <code>&lt;summary&gt;</code>/<code>&lt;details&gt;</code>).</li>
-      <li>Expose <em>name/role/value</em> automatically instead of scripting it; only add ARIA when no native exists. </li>
-      <li>For math or chemistry, prefer <strong>MathML</strong> where feasible; browsers increasingly support it natively. </li>
+      <li>Write the sitemap and task flows first; remove steps that don’t help users finish the job.</li>
+      <li>Use plain language. Replace “utilize/submit” with “use/send.” Microcopy is part of access.</li>
+      <li>Prototype headings as a table of contents; if the outline reads clearly, the UI will too.</li>
     </ul>
-  </section>
 
-  <section aria-labelledby="inputs">
-    <h3 id="inputs">2) Inputs that fail safely</h3>
+    <h3>Semantics before ARIA</h3>
     <ul>
-      <li>Label every control (<code>&lt;label for&gt;</code> or wrapping label). Provide <code>aria-describedby</code> for help/error text.</li>
-      <li>Use <code>autocomplete</code> tokens (<code>name</code>, <code>postal-code</code>, <code>cc-number</code>) and <code>inputmode</code> for better mobile keyboards.</li>
-      <li>Group related fields with <code>&lt;fieldset&gt;</code>/<code>&lt;legend&gt;</code> (e.g., shipping vs billing).</li>
+      <li>Use <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>aside</code>, <code>footer</code> for structure.</li>
+      <li>Use <code>button</code> for actions; <code>a</code> for navigation. Don’t make clickable <code>div</code>s.</li>
+      <li>Headings descend one level at a time. Don’t jump from <code>h2</code> to <code>h5</code>.</li>
+      <li>Add ARIA only when HTML can’t express the thing (roving focus, composite widgets, live updates).</li>
     </ul>
-  </section>
 
-  <section aria-labelledby="interaction">
-    <h3 id="interaction">3) Interaction patterns that match APG</h3>
-    <p>When you can’t use a native element (e.g., tabs, menu button), follow the ARIA Authoring Practices for keyboard order, focus management, roles and states.</p>
+    <h3>Readable, forgiving CSS</h3>
     <ul>
-      <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/" rel="noopener">Disclosure</a> (hide/show) and <a href="https://www.w3.org/WAI/ARIA/apg/patterns/accordion/" rel="noopener">Accordion</a></li>
-      <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/" rel="noopener">Tabs</a> and <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/" rel="noopener">Menu button</a></li>
+      <li><strong>Contrast:</strong> AA minimum; AAA for small gray text. Validate against your palette.</li>
+      <li><strong>Type:</strong> base 16px+, 1.5 line height, 50–75ch line length; never fully justify paragraphs.</li>
+      <li><strong>Motion:</strong> provide a calm path using <code>prefers-reduced-motion</code>.</li>
+      <li><strong>Dark/light:</strong> test both. Ensure contrast stays AA in each theme.</li>
     </ul>
-  </section>
 
-  <section aria-labelledby="perception">
-    <h3 id="perception">4) Perception & motion</h3>
+    <h3>Responsive by default (Grid + Flexbox)</h3>
+    <p>Use Grid for 2-D page layout and Flexbox for 1-D groups (navs, button rows, cards). Start mobile-first, then enhance at content-driven breakpoints. Test zoom at 200% and reflow — no sideways scroll for body text.</p>
+
+    <h3>Forms that don’t fight users</h3>
     <ul>
-      <li>Respect <code>prefers-reduced-motion</code>; provide a no-motion path for parallax, autoplay, or marquee-like effects. </li>
-      <li>Ensure text/background contrast meets WCAG (use WebAIM checker during design). </li>
-      <li>Give focus a visible, high-contrast style that passes WCAG 2.2 <em>Focus Appearance</em>. </li>
+      <li>Every control has a <code>&lt;label for&gt;</code>. Group related fields with <code>fieldset</code>/<code>legend</code>.</li>
+      <li>Use <code>autocomplete</code> tokens and <code>inputmode</code>. Surface errors inline with <code>aria-describedby</code>.</li>
+      <li>Don’t wipe the user’s input on error; explain how to fix it in regular language.</li>
     </ul>
-  </section>
-</article>
 
-<aside class="aside-1 flow" aria-labelledby="check">
-  <h2 id="check">Design checklist</h2>
-  <ul>
-    <li>Headings form a real outline; landmarks (<code>header</code>, <code>nav</code>, <code>main</code>, <code>aside</code>, <code>footer</code>) exist.</li>
-    <li>Skip link works and is visible on focus.</li>
-    <li>Nav is operable with keyboard; focus order matches reading order.</li>
-    <li>Buttons are buttons; links are links; no <code>div</code>-as-control.</li>
-  </ul>
-</aside>
+    <h3>Content patterns</h3>
+    <ul>
+      <li><strong>Alt text:</strong> describe the purpose, not the pixels. If it’s decorative, give it empty alt (<code>alt=""</code>).</li>
+      <li><strong>Links:</strong> “View pricing,” not “Click here.” Include context in the text itself.</li>
+      <li><strong>Tables:</strong> add <code>&lt;caption&gt;</code>, mark header cells with <code>&lt;th scope&gt;</code>, and keep the reading order sane.</li>
+      <li><strong>Media:</strong> captions and transcripts; avoid autoplay with sound.</li>
+    </ul>
+  </article>
 
-<aside class="aside-2 flow" aria-labelledby="resources">
-  <h2 id="resources">Deep-dive resources</h2>
-  <ul>
-    <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/" rel="noopener">ARIA APG 1.2 patterns</a> (keyboard behavior, roles)</li>
-    <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/" rel="noopener">WCAG 2.2 Understanding docs</a> (normative guidance)</li>
-    <li><a href="https://webaim.org/resources/contrastchecker/" rel="noopener">WebAIM Contrast Checker</a></li>
-    <li><a href="https://github.com/mathml-refresh/mathml" rel="noopener">MathML Core repo</a></li>
-  </ul>
-</aside>
-  </main>
+  <aside class="aside-1 flow" aria-labelledby="seven">
+    <h2 id="seven">Seven principles applied to the web</h2>
+    <ol>
+      <li><strong>Equitable use:</strong> same content, same path; no “alt” experience hidden in a PDF.</li>
+      <li><strong>Flexibility:</strong> mouse, keyboard, touch, voice all work end-to-end.</li>
+      <li><strong>Simple & intuitive:</strong> predictable components; no mystery meat navigation.</li>
+      <li><strong>Perceptible info:</strong> contrast + alternatives; never color-only signals.</li>
+      <li><strong>Tolerance for error:</strong> undo, confirm, autosave; forgiving validation.</li>
+      <li><strong>Low effort:</strong> big targets, minimal precision, fewer steps.</li>
+      <li><strong>Size & space:</strong> layouts breathe; tap zones aren’t crowded.</li>
+    </ol>
+  </aside>
+
+  <aside class="aside-2 flow" aria-labelledby="patterns">
+    <h2 id="patterns">Robust widgets to reuse</h2>
+    <ul>
+      <li><strong>Disclosure/accordion:</strong> toggle with Space/Enter; set <code>aria-expanded</code> and <code>aria-controls</code>.</li>
+      <li><strong>Tabs:</strong> arrow keys move focus; <code>aria-selected</code>, <code>tabindex</code> roving, and <code>aria-controls</code>.</li>
+      <li><strong>Menu button:</strong> opens on click/Down; closes on ESC/blur; returns focus to trigger.</li>
+      <li><strong>Dialog:</strong> trap focus; restore focus on close; close on overlay/ESC; <code>aria-modal="true"</code>.</li>
+    </ul>
+  </aside>
+</main>
 
   <footer class="site-footer" role="contentinfo">
     <p class="wrap">&copy; 2025 Zaim Jami</p>
