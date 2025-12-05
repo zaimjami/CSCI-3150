@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Universal Design — Home</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Material Icons (decorative) -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Project styles -->
+  <link rel="stylesheet" href="ud.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="brand wrap">
+      <span class="material-icons" aria-hidden="true">accessibility_new</span>
+      <div>
+        <h1 class="site-title">Universal Design</h1>
+        <p class="site-tag">Make the web work for everyone.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Project">
+    <ul class="menu wrap">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="why.html">Why</a></li>
+      <li><a href="what.html">What</a></li>
+      <li><a href="how.html">How</a></li>
+      <li class="back"><a href="../index.html" title="Back to Class Portal">↩ Portal</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="grid wrap">
+    <article class="content flow">
+      <h2>Welcome</h2>
+      <p>Universal design is about building interfaces that work for as many people as possible by default. It’s not an afterthought, a toggle, or an add-on—it’s the baseline. This site is built mobile-first with semantic HTML, responsive CSS Grid + Flexbox, clear focus styles, and keyboard-first navigation so the code practices match the message.</p>
+
+      <figure class="media">
+        <img src="images/hero.webp" alt="Collage of phones and laptops showing high-contrast UIs, captions, and keyboard focus indicators." width="1400" height="700" loading="lazy">
+        <figcaption>Design decisions that help one group often help everyone.</figcaption>
+      </figure>
+
+      <section aria-labelledby="fast">
+        <h3 id="fast">Start here</h3>
+        <ul>
+          <li><a href="why.html">Why universal design matters (ethics, business, performance, law)</a></li>
+          <li><a href="what.html">What it covers (principles with concrete, modern examples)</a></li>
+          <li><a href="how.html">How to implement (patterns, checklists, testing workflow)</a></li>
+        </ul>
+      </section>
+    </article>
+
+    <aside class="aside-1 flow" aria-labelledby="qf">
+      <h2 id="qf">Quick facts</h2>
+      <ul>
+        <li>1 in 6 people worldwide live with disability.</li>
+        <li>Captions help in loud places and for language learners.</li>
+        <li>Good contrast helps outdoors and on older screens.</li>
+        <li>Keyboard support helps power users and assistive tech.</li>
+      </ul>
+    </aside>
+
+    <aside class="aside-2 flow" aria-labelledby="res">
+      <h2 id="res">Helpful resources</h2>
+      <ul>
+        <li><a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" rel="noopener">W3C: Intro to Accessibility</a></li>
+        <li><a href="https://webaim.org/resources/contrastchecker/" rel="noopener">WebAIM Contrast Checker</a></li>
+        <li><a href="https://dequeuniversity.com/rules/axe/" rel="noopener">Deque aXe Rules</a></li>
+        <li><a href="https://www.smashingmagazine.com/2021/03/complete-guide-accessible-front-end-components/" rel="noopener">Accessible UI Components (guide)</a></li>
+        <li><a href="https://www.a11yproject.com/checklist/" rel="noopener">The A11Y Project Checklist</a></li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p class="wrap">&copy; 2025 Zaim Jami • Built mobile-first with semantic HTML, CSS Grid/Flexbox, and tested with keyboard + VoiceOver.</p>
+  </footer>
+</body>
+</html>
 
