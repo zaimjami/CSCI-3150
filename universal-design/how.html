@@ -33,95 +33,114 @@
   </nav>
 
   <main id="main" class="grid wrap">
-    <article class="content flow">
-  <h2>How to build it (copy-paste patterns)</h2>
+  <article class="content flow">
+    <h2>How to build it so it keeps working</h2>
 
-  <section aria-labelledby="focus">
-    <h3 id="focus">1) Focus you can actually see</h3>
-    <pre><code>/* WCAG 2.2-friendly focus ring */
-:where(a, button, input, select, textarea):focus-visible{
-  outline: 3px solid #e9c46a;   /* high-contrast */
-  outline-offset: 2px;
-  border-radius: .25rem;
+    <h3>Focus, targeting, and motion (the fast wins)</h3>
+    <pre><code>:where(a,button,[role="button"],input,select,textarea):focus-visible{
+  outline:3px solid #e9c46a; outline-offset:2px; border-radius:.25rem;
 }</code></pre>
-    <p>Meets the “change of contrast + area” intent in Focus Appearance (Minimum). </p>
-  </section>
-
-  <section aria-labelledby="targets">
-    <h3 id="targets">2) Thumbable target sizes</h3>
-    <pre><code>/* 44x44 CSS px minimum target area via padding */
-.nav a{
-  display:inline-flex; align-items:center; gap:.35rem;
-  min-height: 44px; min-width: 44px; padding: .6rem .85rem;
+    <pre><code>.btn,.menu a{ min-width:44px; min-height:44px; padding:.6rem .85rem; }</code></pre>
+    <pre><code>@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important}
 }</code></pre>
-    <p>Aligns to WCAG 2.2 <em>Target Size (Minimum)</em> with spacing exceptions where applicable. </p>
-  </section>
+    <p>Don’t remove outlines globally. Replace them with something obvious and consistent.</p>
 
-  <section aria-labelledby="form">
-    <h3 id="form">3) Robust forms</h3>
+    <h3>Reading order and landmarks</h3>
+    <ul>
+      <li>DOM order = reading order. Visually re-arrange with CSS, not with random tab-indexing.</li>
+      <li>Use <code>header</code>, <code>nav</code>, <code>main</code>, <code>aside</code>, <code>footer</code> once per major region. Screen readers have landmark shortcuts; give them something to jump to.</li>
+    </ul>
+
+    <h3>Alt text that helps</h3>
+    <ul>
+      <li><strong>Informational:</strong> “Priyanka Chopra and Ranbir Kapoor at a promo event.”</li>
+      <li><strong>Functional:</strong> For a poster thumbnail linking to details, “Barfi! theatrical poster — open film details.”</li>
+      <li><strong>Decorative:</strong> if it’s just flourish, <code>alt=""</code>. Don’t describe the flourish.</li>
+    </ul>
+
+    <h3>Accessible forms (copy/paste baseline)</h3>
     <pre><code>&lt;fieldset&gt;
-  &lt;legend&gt;Contact Info&lt;/legend&gt;
-  &lt;label for="fn"&gt;Full name&lt;/label&gt;
-  &lt;input id="fn" name="name" autocomplete="name" required&gt;
+  &lt;legend&gt;Contact&lt;/legend&gt;
 
   &lt;label for="email"&gt;Email&lt;/label&gt;
-  &lt;input id="email" type="email" name="email"
-         autocomplete="email" inputmode="email" required
-         aria-describedby="email-help"&gt;
-  &lt;p id="email-help"&gt;We'll only use this to reply.&lt;/p&gt;
+  &lt;input id="email" name="email" type="email" autocomplete="email"
+         inputmode="email" required&gt;
+
+  &lt;label for="msg"&gt;Message&lt;/label&gt;
+  &lt;textarea id="msg" name="message" rows="6"
+            aria-describedby="msg-help"&gt;&lt;/textarea&gt;
+  &lt;p id="msg-help"&gt;Share as much detail as you like.&lt;/p&gt;
+
+  &lt;button class="btn"&gt;Send&lt;/button&gt;
 &lt;/fieldset&gt;</code></pre>
-    <p>Uses native validation UI + programmatic help via <code>aria-describedby</code>.</p>
-  </section>
+    <p>On error, keep the user’s input, focus the first invalid field, and explain how to fix it. Use plain language.</p>
 
-  <section aria-labelledby="disclosure">
-    <h3 id="disclosure">4) Disclosure (show/hide) per APG</h3>
-    <pre><code>&lt;details class="faq"&gt;
-  &lt;summary&gt;What is universal design?&lt;/summary&gt;
-  &lt;p&gt;Design that works for everyone by default.&lt;/p&gt;
-&lt;/details&gt;</code></pre>
-    <p>Prefer native <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code>; for custom widgets follow APG keyboard patterns. </p>
-  </section>
+    <h3>Custom components without the pain</h3>
+    <p><strong>Tabs (pattern sketch):</strong> roving <code>tabindex</code> on the tab list, arrow keys move focus, Enter/Space activates, set <code>aria-selected</code> on the active tab, each tab owns a <code>role="tabpanel"</code> via <code>aria-controls</code>. On activation, move focus into the panel only if that’s the expected behavior.</p>
+    <p><strong>Dialog:</strong> trap focus while open, return focus to the invoker on close, close on ESC and overlay click, set <code>aria-modal="true"</code> and label with <code>aria-labelledby</code>.</p>
+    <p>Don’t reinvent these from scratch under a deadline. Either use a well-audited library or follow the ARIA Authoring Practices to the letter.</p>
 
-  <section aria-labelledby="motion">
-    <h3 id="motion">5) Respect reduced motion</h3>
-    <pre><code>@media (prefers-reduced-motion: reduce){
-  *{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: 0s !important; }
-}</code></pre>
-    <p>Prevents vestibular triggers while preserving function. </p>
-  </section>
+    <h3>Media: do the complete job</h3>
+    <ul>
+      <li>Provide captions (not auto-captions only) and transcripts for long-form content.</li>
+      <li>Give users control: no autoplay with sound, and visible play/pause/seek buttons that work with a keyboard.</li>
+      <li>Describe meaningful on-screen text in the audio if it isn’t read aloud.</li>
+    </ul>
 
-  <section aria-labelledby="math">
-    <h3 id="math">6) Accessible math (native)</h3>
-    <pre><code>&lt;math display="block"&gt;
-  &lt;msup&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
-  &lt;mo&gt;+&lt;/mo&gt;
-  &lt;msup&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
-  &lt;mo&gt;=&lt;/mo&gt;
-  &lt;msup&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;
-&lt;/math&gt;</code></pre>
-    <p>Leverages <strong>MathML Core</strong>; assistive tech can navigate/read structure without extra JS. </p>
-  </section>
-</article>
+    <h3>Testing that actually catches issues</h3>
+    <ol>
+      <li><strong>Automated pass:</strong> Nu validator (HTML), WAVE/axe (a11y), Lighthouse (a11y/perf). Fix the basics before manual testing.</li>
+      <li><strong>Keyboard pass:</strong> unplug the mouse. Can you reach every control? Is focus always visible? Can you close dialogs and menus with ESC?</li>
+      <li><strong>Screen reader pass:</strong> VoiceOver (Mac/iOS) or NVDA (Windows). Check the headings list, landmarks list, and links list. Do they read like a map?</li>
+      <li><strong>Zoom & reflow:</strong> 200% zoom and portrait/landscape. Body text should not require horizontal scrolling.</li>
+      <li><strong>Mobile pass:</strong> try with TalkBack (Android) and VoiceOver (iOS). Confirm rotor/quick nav can jump by headings and landmarks.</li>
+    </ol>
 
-<aside class="aside-1 flow" aria-labelledby="qa">
-  <h2 id="qa">Quick QA loop</h2>
-  <ol>
-    <li>Tab through every control—can you always see focus?</li>
-    <li>Try keyboard-only: can you open menus, activate tabs, submit forms?</li>
-    <li>Run WAVE and Nu; fix errors (contrast, missing labels, headings). </li>
-  </ol>
-</aside>
+    <h3>Keep it shippable: process and guardrails</h3>
+    <ul>
+      <li><strong>Design tokens:</strong> pre-vetted color pairs (AA or better), spacing scale, focus styles, motion rules. Designers can’t pick illegal colors if they’re not in the tokens.</li>
+      <li><strong>PR checklist:</strong> headings in order; controls are native or accessible; visible focus; labels; ARIA only where needed; reduced-motion respected.</li>
+      <li><strong>Definition of Done:</strong> keyboard operable, contrast passes, zoom/reflow passes, linter and validator clean.</li>
+      <li><strong>Docs:</strong> every component has “keyboard behavior” and “AT expectations” written down.</li>
+    </ul>
 
-<aside class="aside-2 flow" aria-labelledby="links">
-  <h2 id="links">Specs & references</h2>
-  <ul>
-    <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/" rel="noopener">WCAG 2.2 Understanding</a></li>
-    <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/" rel="noopener">ARIA Authoring Practices 1.2</a></li>
-    <li><a href="https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion" rel="noopener">MDN: prefers-reduced-motion</a></li>
-    <li><a href="https://webaim.org/resources/contrastchecker/" rel="noopener">WebAIM Contrast Checker</a></li>
-  </ul>
-</aside>
-  </main>
+    <h3>Anti-patterns to retire</h3>
+    <ul>
+      <li>Links that open new windows without warning.</li>
+      <li>Infinite carousels with no pause/stop and no semantics.</li>
+      <li>Placeholders used as labels; the label disappears when you type.</li>
+      <li>“Click here” links with no context; screen-reader users hear an identical list of “Click here.”</li>
+      <li>Removing outlines globally with <code>outline: 0;</code> and calling it “clean.”</li>
+    </ul>
+
+    <h3>Performance is part of access</h3>
+    <ul>
+      <li>Ship 2× fewer JS libraries than you think you need. Less script = faster input and less jank for everyone.</li>
+      <li>Compress and lazy-load media; always include intrinsic width/height to prevent layout shift (CLS).</li>
+      <li>Prefer system fonts or a tight subset; avoid FOIT, and provide <code>font-display: swap</code>.</li>
+    </ul>
+  </article>
+
+  <aside class="aside-1 flow" aria-labelledby="quick">
+    <h2 id="quick">Quick fixes that punch above their weight</h2>
+    <ul>
+      <li>Add a skip link before the header. It’s a one-liner that saves time every visit.</li>
+      <li>Make every interactive thing a real HTML control. You immediately gain keyboard and semantics.</li>
+      <li>Replace color-only states with icon + text + color.</li>
+      <li>Audit headings. Treat them like a table of contents.</li>
+    </ul>
+  </aside>
+
+  <aside class="aside-2 flow" aria-labelledby="toolkit">
+    <h2 id="toolkit">Toolkit to keep around</h2>
+    <ul>
+      <li>Validators: W3C Nu (HTML), WAVE or axe DevTools (a11y), Lighthouse (a11y/perf).</li>
+      <li>Checkers: WebAIM contrast, Heading Map/HTML5-Outliner, CSS media feature emulators.</li>
+      <li>AT: VoiceOver (macOS/iOS), NVDA (Windows), TalkBack (Android). Learn two; you’ll catch different issues.</li>
+    </ul>
+  </aside>
+</main>
 
   <footer class="site-footer" role="contentinfo">
     <p class="wrap">&copy; 2025 Zaim Jami</p>
