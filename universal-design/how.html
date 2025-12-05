@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Universal Design — How to build it</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="ud.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="brand wrap">
+      <span class="material-icons" aria-hidden="true">build</span>
+      <div>
+        <h1 class="site-title">How To Build Universal Design</h1>
+        <p class="site-tag">Concrete patterns, checklists, and testing workflow.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Project">
+    <ul class="menu wrap">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="why.html">Why</a></li>
+      <li><a href="what.html">What</a></li>
+      <li><a href="how.html" aria-current="page">How</a></li>
+      <li class="back"><a href="../index.html">↩ Portal</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="grid wrap">
+    <article class="content flow">
+      <h2>Core patterns</h2>
+
+      <section aria-labelledby="landmarks">
+        <h3 id="landmarks">Landmarks & headings</h3>
+        <ul>
+          <li>One <code>&lt;main&gt;</code> per page; consistent <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;footer&gt;</code>, and meaningful <code>&lt;aside&gt;</code>.</li>
+          <li>Heading order is hierarchical: H1 → H2 → H3 (no jumps).</li>
+          <li>Every section has a titled heading (no “untitled” outline nodes).</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="focus">
+        <h3 id="focus">Keyboard & focus</h3>
+        <ul>
+          <li>Everything is reachable via keyboard (Tab/Shift+Tab/Enter/Space/Arrows/Esc).</li>
+          <li>Visible focus ring on all interactive elements.</li>
+          <li>Skip link is the first focusable control and lands in <code>#main</code>.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="contrast">
+        <h3 id="contrast">Contrast, sizing, and motion</h3>
+        <ul>
+          <li>Text contrast ≥ WCAG AA; never encode meaning by color alone.</li>
+          <li>Touch targets ~44–48px with adequate spacing.</li>
+          <li>Respect <code>prefers-reduced-motion</code> and user font size.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="forms">
+        <h3 id="forms">Forms & tables</h3>
+        <ul>
+          <li>Explicit <code>&lt;label for&gt;</code>, helpful hints, clear errors.</li>
+          <li>Table <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>/<code>&lt;tbody&gt;</code>/<code>&lt;tfoot&gt;</code>, correct header scope.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="testing">
+        <h3 id="testing">Testing workflow</h3>
+        <ol>
+          <li>Validate HTML with the Nu Validator.</li>
+          <li>Run WAVE (0 errors; check contrast).</li>
+          <li>Open Lighthouse → Accessibility (90+ is the floor, aim for 100).</li>
+          <li>Check the HTML5 Outliner (no untitled sections).</li>
+          <li>Keyboard test end-to-end; then try a screen reader (VoiceOver/NVDA).</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="snips">
+        <h3 id="snips">Example: skip link + focus style</h3>
+        <pre><code>&lt;a class="skip-link" href="#main"&gt;Skip to content&lt;/a&gt;
+
+.skip-link{
+  position:absolute; left:0; top:-40px;
+  background:#000; color:#fff; padding:.5rem .75rem; border-radius:.25rem;
+}
+.skip-link:focus{ top:0 } </code></pre>
+      </section>
+    </article>
+
+    <aside class="aside-1 flow" aria-labelledby="chk">
+      <h2 id="chk">Ship checklist</h2>
+      <ul>
+        <li>Semantic landmarks present</li>
+        <li>Headings structured</li>
+        <li>Keyboard complete + visible focus</li>
+        <li>Contrast passes</li>
+        <li>Media has text alternatives</li>
+        <li>Validated (Nu, WAVE, Lighthouse, Outliner)</li>
+      </ul>
+    </aside>
+
+    <aside class="aside-2 flow" aria-labelledby="tools">
+      <h2 id="tools">Tools</h2>
+      <ul>
+        <li><a href="https://validator.w3.org/nu/" rel="noopener">Nu HTML Validator</a></li>
+        <li><a href="https://wave.webaim.org/" rel="noopener">WAVE</a></li>
+        <li><a href="https://web.dev/measure/" rel="noopener">Lighthouse (web.dev)</a></li>
+        <li><a href="https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd" rel="noopener">axe DevTools</a></li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p class="wrap">&copy; 2025 Zaim Jami</p>
+  </footer>
+</body>
+</html>
