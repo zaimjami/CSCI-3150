@@ -34,47 +34,51 @@
 
   <main id="main" class="grid wrap">
     <article class="content flow">
-      <h2>Persuasion: why this is non-negotiable</h2>
-      <p><strong>Human impact:</strong> the web is a public space. Excluding people because of vision, hearing, mobility, cognition, bandwidth, language, or device is the opposite of what the web is for.</p>
-      <p><strong>Legal + risk:</strong> many countries require accessible digital services. Building access in is cheaper than retrofit and lowers legal and support risk.</p>
-      <p><strong>Business value:</strong> accessible sites convert better, bounce less, and earn loyalty. Clear headings, descriptive links, and fast pages improve search visibility.</p>
-      <p><strong>Performance:</strong> universal design encourages semantic HTML, fewer hacks, better caching, and device-friendly assets—which usually means faster pages.</p>
-      <p><strong>Resilience:</strong> captions help in noisy spaces, transcripts help with search, visible focus helps power users, high contrast helps in sunlight, larger tap targets help on the go.</p>
+  <h2>Why universal design isn’t optional</h2>
 
-      <section aria-labelledby="stories">
-        <h3 id="stories">Real situations we design for</h3>
-        <ul>
-          <li>A student in bright sun trying to submit a form on a cracked phone.</li>
-          <li>Someone on hotel Wi-Fi watching a demo with captions.</li>
-          <li>A developer navigating entirely by keyboard during a wrist flare-up.</li>
-          <li>A parent using a screen reader while holding a sleeping baby.</li>
-        </ul>
-      </section>
+  <p><strong>Access is table-stakes.</strong> The web is a public space; excluding people by vision, hearing, mobility, cognition, bandwidth or device undercuts the point of the web. Accessibility requirements are codified in WCAG, which many institutions adopt by policy or law. Building it in is cheaper than retrofits and reduces legal/support risk. </p>
 
-      <section aria-labelledby="principle">
-        <h3 id="principle">The principle</h3>
-        <p>When we design for the edges, everyone in the middle benefits. Universal design improves quality for all users, all the time.</p>
-      </section>
-    </article>
+  <p><strong>It measurably improves products.</strong> WCAG 2.2’s newer criteria (e.g., <em>Focus Appearance</em> and <em>Target Size</em>) were added because users literally couldn’t see focus or hit tiny taps. Fixing those raises completion rates on forms and navs, especially on mobile. </p>
 
-    <aside class="aside-1 flow" aria-labelledby="tl;dr">
-      <h2 id="tldr">TL;DR</h2>
-      <ul>
-        <li>It’s ethical.</li>
-        <li>It reduces risk.</li>
-        <li>It improves business metrics.</li>
-        <li>It makes better, faster products.</li>
-      </ul>
-    </aside>
+  <p><strong>It accelerates delivery.</strong> Semantic HTML exposes name/role/value to Assistive Tech via accessibility APIs, meaning less custom JS/ARIA and fewer bugs. Authoring-practice-aligned patterns (e.g., disclosure, tabs) avoid inventing bespoke controls. :contentReference[oaicite:2]{index=2}</p>
 
-    <aside class="aside-2 flow" aria-labelledby="refs">
-      <h2 id="refs">References</h2>
-      <ul>
-        <li><a href="https://www.w3.org/WAI/perspective-videos/" rel="noopener">WAI: Perspectives videos</a></li>
-        <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" rel="noopener">WCAG Overview</a></li>
-        <li><a href="https://webaim.org/blog" rel="noopener">WebAIM articles</a></li>
-      </ul>
-    </aside>
+  <p><strong>It future-proofs content.</strong> Native tech keeps getting better: MathML Core is shipping broadly, enabling accessible math without heavy client JS. When platforms improve, your semantic content improves with them. </p>
+
+  <section aria-labelledby="stories">
+    <h3 id="stories">Real scenarios you design for</h3>
+    <ul>
+      <li>Bright sun on a cracked phone: high contrast + readable focus rings mean the menu is still operable. </li>
+      <li>Low-bandwidth dorm Wi-Fi: captions & transcripts keep lecture videos useful and searchable. </li>
+      <li>Repetitive strain flare-up: full keyboard support and visible focus keep productivity up. </li>
+      <li>STEM homework with a screen reader: MathML Core enables direct reading & navigation. </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="principle">
+    <h3 id="principle">Principle</h3>
+    <p>Design for the edges and everyone benefits—fewer support tickets, faster UX, better SEO, better DX.</p>
+  </section>
+</article>
+
+<aside class="aside-1 flow" aria-labelledby="tldr">
+  <h2 id="tldr">TL;DR</h2>
+  <ul>
+    <li>It’s ethical.</li>
+    <li>It reduces risk.</li>
+    <li>It improves core business metrics.</li>
+    <li>It makes better, faster products.</li>
+  </ul>
+</aside>
+
+<aside class="aside-2 flow" aria-labelledby="refs">
+  <h2 id="refs">References</h2>
+  <ul>
+    <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" rel="noopener">WCAG Overview (W3C WAI)</a></li>
+    <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-minimum.html" rel="noopener">WCAG 2.2 Focus Appearance</a> & <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html" rel="noopener">Target Size</a></li>
+    <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/" rel="noopener">ARIA Authoring Practices 1.2 patterns</a></li>
+    <li><a href="https://github.com/mathml-refresh/mathml" rel="noopener">MathML Core</a></li>
+  </ul>
+</aside>
   </main>
 
   <footer class="site-footer" role="contentinfo">
