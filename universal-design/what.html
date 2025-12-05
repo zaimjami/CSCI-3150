@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Universal Design — What it is</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="ud.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="brand wrap">
+      <span class="material-icons" aria-hidden="true">lightbulb</span>
+      <div>
+        <h1 class="site-title">What Is Universal Design</h1>
+        <p class="site-tag">Principles + modern examples.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Project">
+    <ul class="menu wrap">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="why.html">Why</a></li>
+      <li><a href="what.html" aria-current="page">What</a></li>
+      <li><a href="how.html">How</a></li>
+      <li class="back"><a href="../index.html">↩ Portal</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="grid wrap">
+    <article class="content flow">
+      <h2>Principles</h2>
+      <p>Universal design applies the WCAG framework in a product mindset: interfaces must be <strong>Perceivable</strong>, <strong>Operable</strong>, <strong>Understandable</strong>, and <strong>Robust</strong>.</p>
+
+      <section aria-labelledby="p">
+        <h3 id="p">Perceivable</h3>
+        <ul>
+          <li>Provide text alternatives for non-text media (alt text, captions, transcripts).</li>
+          <li>Use sufficient color contrast and never rely on color alone for meaning.</li>
+          <li>Respect user font size and motion preferences.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="o">
+        <h3 id="o">Operable</h3>
+        <ul>
+          <li>All functionality via keyboard; visible focus indicators everywhere.</li>
+          <li>Logical tab order and skip navigation.</li>
+          <li>Touch targets sized ~44–48px with comfortable spacing.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="u">
+        <h3 id="u">Understandable</h3>
+        <ul>
+          <li>Predictable navigation and labels; descriptive link text.</li>
+          <li>Helpful form guidance, error prevention, and clear messages.</li>
+          <li>Readable type scale and generous line-height/spacing.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="r">
+        <h3 id="r">Robust</h3>
+        <ul>
+          <li>Semantic HTML with proper landmarks and headings.</li>
+          <li>ARIA only when native semantics can’t express the role/state.</li>
+          <li>Test with multiple AT, browsers, and devices.</li>
+        </ul>
+      </section>
+    </article>
+
+    <aside class="aside-1 flow" aria-labelledby="patterns">
+      <h2 id="patterns">Patterns that scale</h2>
+      <ul>
+        <li>Semantic navigation (header/nav/main/aside/footer)</li>
+        <li>Responsive grid/flex layouts</li>
+        <li>Accessible media (alt, captions, transcripts)</li>
+        <li>Resilient forms and tables</li>
+      </ul>
+    </aside>
+
+    <aside class="aside-2 flow" aria-labelledby="learn">
+      <h2 id="learn">Learn more</h2>
+      <ul>
+        <li><a href="https://www.w3.org/WAI/quickref/" rel="noopener">WCAG Quick Ref</a></li>
+        <li><a href="https://inclusive-components.design/" rel="noopener">Inclusive Components</a></li>
+        <li><a href="https://designsystem.digital.gov/" rel="noopener">U.S. Web Design System</a></li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p class="wrap">&copy; 2025 Zaim Jami</p>
+  </footer>
+</body>
+</html>
