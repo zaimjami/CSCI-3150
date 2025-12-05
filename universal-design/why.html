@@ -33,53 +33,63 @@
   </nav>
 
   <main id="main" class="grid wrap">
-    <article class="content flow">
-  <h2>Why universal design isn’t optional</h2>
+  <article class="content flow">
+    <h2>Why universal design matters (for real teams shipping real sites)</h2>
 
-  <p><strong>Access is table-stakes.</strong> The web is a public space; excluding people by vision, hearing, mobility, cognition, bandwidth or device undercuts the point of the web. Accessibility requirements are codified in WCAG, which many institutions adopt by policy or law. Building it in is cheaper than retrofits and reduces legal/support risk. </p>
+    <p>Universal design isn’t a vibe or a trend. It’s the difference between a site that works only in the designer’s head and a site that survives real life: glare at the bus stop, a cracked screen, slow hotel Wi-Fi, a wrist flare-up, a toddler asleep on your shoulder while VoiceOver is reading. When we build for those moments, we lower friction for everyone else too. That’s the play.</p>
 
-  <p><strong>It measurably improves products.</strong> WCAG 2.2’s newer criteria (e.g., <em>Focus Appearance</em> and <em>Target Size</em>) were added because users literally couldn’t see focus or hit tiny taps. Fixing those raises completion rates on forms and navs, especially on mobile. </p>
-
-  <p><strong>It accelerates delivery.</strong> Semantic HTML exposes name/role/value to Assistive Tech via accessibility APIs, meaning less custom JS/ARIA and fewer bugs. Authoring-practice-aligned patterns (e.g., disclosure, tabs) avoid inventing bespoke controls. :contentReference[oaicite:2]{index=2}</p>
-
-  <p><strong>It future-proofs content.</strong> Native tech keeps getting better: MathML Core is shipping broadly, enabling accessible math without heavy client JS. When platforms improve, your semantic content improves with them. </p>
-
-  <section aria-labelledby="stories">
-    <h3 id="stories">Real scenarios you design for</h3>
+    <h3>Where sites actually fail people</h3>
     <ul>
-      <li>Bright sun on a cracked phone: high contrast + readable focus rings mean the menu is still operable. </li>
-      <li>Low-bandwidth dorm Wi-Fi: captions & transcripts keep lecture videos useful and searchable. </li>
-      <li>Repetitive strain flare-up: full keyboard support and visible focus keep productivity up. </li>
-      <li>STEM homework with a screen reader: MathML Core enables direct reading & navigation. </li>
+      <li><strong>Low-contrast UIs:</strong> gray on gray looks “sleek” on a design board and turns unreadable on older monitors, in bright sun, or for color-deficient users. It’s not subjective; there are measurable ratios for this.</li>
+      <li><strong>Keyboard traps:</strong> menus, dialogs, and carousels that steal focus and never give it back. If you’ve never tried your site with a keyboard only, you won’t catch these.</li>
+      <li><strong>Color-only signaling:</strong> “errors are red, success is green”… and that’s it. People with deuteranopia (or anyone outside in harsh light) will miss the message. Pair color with text and iconography.</li>
+      <li><strong>Motion that won’t stop:</strong> parallax, auto-playing carousels, animated gradients. Pretty until someone gets dizzy or can’t concentrate. Respect <code>prefers-reduced-motion</code> and offer pause/stop/hide.</li>
+      <li><strong>Invisible state:</strong> no current-page indicator, no active tab styling, no visible focus ring. Users shouldn’t have to guess where they are.</li>
     </ul>
-  </section>
 
-  <section aria-labelledby="principle">
-    <h3 id="principle">Principle</h3>
-    <p>Design for the edges and everyone benefits—fewer support tickets, faster UX, better SEO, better DX.</p>
-  </section>
-</article>
+    <h3>The boring business case (that actually moves budgets)</h3>
+    <ul>
+      <li><strong>Lower support costs:</strong> predictable forms and clear errors mean fewer tickets. Every week you shave off support, you earn back the accessibility budget.</li>
+      <li><strong>SEO without hacks:</strong> semantic headings, descriptive links, and captions are crawlable content. Pages rank better because meaning is in HTML, not just pixels.</li>
+      <li><strong>Faster delivery:</strong> using native controls instead of custom div-widgets cuts JS and QA surface area. Less to maintain = more to ship.</li>
+    </ul>
 
-<aside class="aside-1 flow" aria-labelledby="tldr">
-  <h2 id="tldr">TL;DR</h2>
-  <ul>
-    <li>It’s ethical.</li>
-    <li>It reduces risk.</li>
-    <li>It improves core business metrics.</li>
-    <li>It makes better, faster products.</li>
-  </ul>
-</aside>
+    <h3>Ethics and the job description</h3>
+    <p>Access is a civil right. If a cafeteria can publish an accessible menu, we can ship alt text and keyboard support. We’re not “doing a favor”; we’re doing our job — making an interface most people can actually use without special requests, back-channels, or “email us for help.”</p>
 
-<aside class="aside-2 flow" aria-labelledby="refs">
-  <h2 id="refs">References</h2>
-  <ul>
-    <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" rel="noopener">WCAG Overview (W3C WAI)</a></li>
-    <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-minimum.html" rel="noopener">WCAG 2.2 Focus Appearance</a> & <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html" rel="noopener">Target Size</a></li>
-    <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/" rel="noopener">ARIA Authoring Practices 1.2 patterns</a></li>
-    <li><a href="https://github.com/mathml-refresh/mathml" rel="noopener">MathML Core</a></li>
-  </ul>
-</aside>
-  </main>
+    <h3>Innovation comes from constraints</h3>
+    <p>Captions help deaf users — and anyone watching on mute. Larger tap targets help motor-impaired users — and everyone on the train. Reduced-motion helps vestibular disorders — and people who just get dizzy. These constraints drive better interaction models and clearer content. It’s not slower; it’s sharper.</p>
+
+    <h3>Where to start if you’re overwhelmed</h3>
+    <ol>
+      <li>Run WAVE + Lighthouse; fix contrast, missing labels, broken headings.</li>
+      <li>Do a pure-keyboard pass. Make focus obvious; make every control operable.</li>
+      <li>Add captions/transcripts to media; write real alt text for essential images.</li>
+      <li>Zoom to 200% and rotate your phone. If you’re scrolling sideways, fix the layout.</li>
+    </ol>
+  </article>
+
+  <aside class="aside-1 flow" aria-labelledby="tldr">
+    <h2 id="tldr">TL;DR</h2>
+    <ul>
+      <li>It’s ethical and expected.</li>
+      <li>It reduces risk and support load.</li>
+      <li>It improves completion, retention, and search.</li>
+      <li>It forces better, faster product decisions.</li>
+    </ul>
+  </aside>
+
+  <aside class="aside-2 flow" aria-labelledby="field">
+    <h2 id="field">Field notes worth knowing</h2>
+    <ul>
+      <li><strong>Big thumbs win:</strong> 44×44px target + 8px spacing drops mobile input errors fast.</li>
+      <li><strong>Focus rings save time:</strong> users find the next action immediately; fewer abandons.</li>
+      <li><strong>Captions drive watch-through:</strong> not just for disability — for loud/quiet spaces too.</li>
+      <li><strong>Headings are a map:</strong> screen-reader users jump by heading level; bad outlines feel like getting dropped in a maze.</li>
+    </ul>
+  </aside>
+</main>
+
 
   <footer class="site-footer" role="contentinfo">
     <p class="wrap">&copy; 2025 Zaim Jami</p>
