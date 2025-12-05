@@ -1,0 +1,126 @@
+:root{
+  /* Theme */
+  --bg:#0b0c0f;          /* header bg */
+  --ink:#111827;         /* body text */
+  --muted:#6b7280;       /* secondary text */
+  --brand:#264653;       /* deep blue-green */
+  --accent:#e9c46a;      /* warm yellow for focus/accents */
+  --paper:#ffffff;       /* cards */
+  --link:#005ea2;        /* accessible blue */
+
+  --max: 72rem;          /* page content width */
+  --tap: 52px;           /* comfy tap target */
+}
+
+/* Base + typography */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--ink); background:#f5f7fb; line-height:1.65;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+h1,h2,h3{
+  font-family:"Playfair Display", Georgia, serif;
+  line-height:1.25; margin:.75rem 0 .5rem;
+  color:#0f172a;
+}
+p{margin:.75rem 0}
+a{color:var(--link); text-underline-offset: .15em}
+a:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+
+/* Wrappers */
+.wrap{max-width:var(--max); margin-inline:auto; padding-inline:1rem}
+.flow > * + *{margin-top:1rem}
+
+/* Skip link */
+.skip-link{
+  position:absolute; left:0; top:-40px; z-index:1000;
+  background:#000; color:#fff; padding:.5rem .75rem; border-radius:.25rem;
+  text-decoration:none;
+}
+.skip-link:focus{top:0}
+
+/* Header */
+.site-header{background:var(--bg); color:#fff; padding:1rem 0}
+.brand{display:flex; align-items:center; gap:.75rem}
+.material-icons{vertical-align:middle; font-size:1.5em}
+.site-title{margin:0; font-size:clamp(1.5rem, 4vw, 2rem)}
+.site-tag{margin:.1rem 0 0; color:#e5e7eb}
+
+/* Nav (Flexbox, 1D) */
+.site-nav{background:var(--brand)}
+.site-nav .menu{
+  display:flex; gap:.5rem; list-style:none; margin:0; padding:.5rem 0;
+  flex-wrap:wrap;
+}
+.site-nav a{
+  display:inline-flex; align-items:center; gap:.35rem;
+  min-height:var(--tap);
+  padding:.6rem .85rem; border-radius:.6rem;
+  text-decoration:none; color:#e6edf6; font-weight:600;
+}
+.site-nav a[aria-current="page"]{background:rgba(255,255,255,.12)}
+.site-nav a:hover, .site-nav a:focus-visible{background:rgba(255,255,255,.18)}
+
+/* Main cards */
+.media{margin:1rem 0}
+.media img{
+  display:block; width:100%; max-width:100%; height:auto;
+  border-radius:.75rem; box-shadow:0 10px 28px rgba(0,0,0,.12);
+}
+.media figcaption{color:var(--muted); font-size:.95rem; margin-top:.5rem}
+
+/* Grid (2D) — mobile first: single column */
+.grid{
+  display:grid; gap:1rem; margin:1rem 0 2rem;
+  grid-template-columns:1fr;
+  grid-template-areas:
+    "content"
+    "aside1"
+    "aside2";
+}
+.content{grid-area:content}
+.aside-1{grid-area:aside1}
+.aside-2{grid-area:aside2}
+
+.content, .aside-1, .aside-2{
+  background:var(--paper);
+  border-radius:.9rem;
+  padding:1rem 1.2rem;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+/* Tablet */
+@media (min-width: 700px){
+  .grid{
+    grid-template-columns: 1fr minmax(0,2fr);
+    grid-template-areas:
+      "aside1 content"
+      "aside2 content";
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px){
+  .grid{
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "aside1 content aside2";
+  }
+}
+
+/* Thumbable vertical nav on narrow phones */
+@media (max-width: 520px){
+  .site-nav .menu{flex-direction:column}
+  .site-nav a{
+    background:rgba(0,0,0,.15);
+    border:1px solid rgba(255,255,255,.2);
+  }
+}
+
+/* Footer */
+.site-footer{padding: .5rem 0 2rem; color:#374151}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce){
+  *{scroll-behavior:auto; transition:none !important; animation:none !important}
+}
