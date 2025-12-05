@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Universal Design — Why it matters</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="ud.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="brand wrap">
+      <span class="material-icons" aria-hidden="true">campaign</span>
+      <div>
+        <h1 class="site-title">Why Universal Design</h1>
+        <p class="site-tag">Make it usable, and you make it valuable.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Project">
+    <ul class="menu wrap">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="why.html" aria-current="page">Why</a></li>
+      <li><a href="what.html">What</a></li>
+      <li><a href="how.html">How</a></li>
+      <li class="back"><a href="../index.html">↩ Portal</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="grid wrap">
+    <article class="content flow">
+      <h2>Persuasion: why this is non-negotiable</h2>
+      <p><strong>Human impact:</strong> the web is a public space. Excluding people because of vision, hearing, mobility, cognition, bandwidth, language, or device is the opposite of what the web is for.</p>
+      <p><strong>Legal + risk:</strong> many countries require accessible digital services. Building access in is cheaper than retrofit and lowers legal and support risk.</p>
+      <p><strong>Business value:</strong> accessible sites convert better, bounce less, and earn loyalty. Clear headings, descriptive links, and fast pages improve search visibility.</p>
+      <p><strong>Performance:</strong> universal design encourages semantic HTML, fewer hacks, better caching, and device-friendly assets—which usually means faster pages.</p>
+      <p><strong>Resilience:</strong> captions help in noisy spaces, transcripts help with search, visible focus helps power users, high contrast helps in sunlight, larger tap targets help on the go.</p>
+
+      <section aria-labelledby="stories">
+        <h3 id="stories">Real situations we design for</h3>
+        <ul>
+          <li>A student in bright sun trying to submit a form on a cracked phone.</li>
+          <li>Someone on hotel Wi-Fi watching a demo with captions.</li>
+          <li>A developer navigating entirely by keyboard during a wrist flare-up.</li>
+          <li>A parent using a screen reader while holding a sleeping baby.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="principle">
+        <h3 id="principle">The principle</h3>
+        <p>When we design for the edges, everyone in the middle benefits. Universal design improves quality for all users, all the time.</p>
+      </section>
+    </article>
+
+    <aside class="aside-1 flow" aria-labelledby="tl;dr">
+      <h2 id="tl;dr">TL;DR</h2>
+      <ul>
+        <li>It’s ethical.</li>
+        <li>It reduces risk.</li>
+        <li>It improves business metrics.</li>
+        <li>It makes better, faster products.</li>
+      </ul>
+    </aside>
+
+    <aside class="aside-2 flow" aria-labelledby="refs">
+      <h2 id="refs">References</h2>
+      <ul>
+        <li><a href="https://www.w3.org/WAI/perspective-videos/" rel="noopener">WAI: Perspectives videos</a></li>
+        <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" rel="noopener">WCAG Overview</a></li>
+        <li><a href="https://webaim.org/blog" rel="noopener">WebAIM articles</a></li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p class="wrap">&copy; 2025 Zaim Jami</p>
+  </footer>
+</body>
+</html>
